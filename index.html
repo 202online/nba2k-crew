@@ -1,19 +1,15 @@
-```html
 <!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BALL REVOLUTION // High-IQ NBA 2K Crew</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-    
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -38,6 +34,7 @@
             }
         }
     </script>
+
     <style>
         body {
             background-color: #090d16;
@@ -45,51 +42,63 @@
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
+
         .font-display {
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
+
         .glass-card {
             background: rgba(31, 41, 55, 0.7);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
+
         .glass-card:hover {
             border-color: rgba(168, 85, 247, 0.4);
         }
+
         .gradient-text {
             background: linear-gradient(135deg, #10b981 0%, #a855f7 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .gradient-text-purple {
             background: linear-gradient(135deg, #a855f7 0%, #ffffff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .hero-bg {
             background: radial-gradient(circle at 50% 15%, rgba(168, 85, 247, 0.15) 0%, rgba(16, 185, 129, 0.08) 40%, rgba(9, 13, 22, 0.98) 80%);
         }
+
         .badge-green {
             background: rgba(16, 185, 129, 0.15);
             color: #34d399;
             border: 1px solid rgba(16, 185, 129, 0.3);
         }
+
         .badge-purple {
             background: rgba(168, 85, 247, 0.15);
             color: #c084fc;
             border: 1px solid rgba(168, 85, 247, 0.3);
         }
+
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: #090d16;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #374151;
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #10b981;
         }
@@ -97,14 +106,12 @@
 </head>
 <body class="antialiased selection:bg-crew-purple selection:text-white">
 
-    <!-- Toast Notification Container -->
     <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3 pointer-events-none"></div>
 
-    <!-- Navigation Header -->
     <header class="fixed top-0 left-0 right-0 z-40 glass-card border-b border-white/10" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-crew-green to-crew-purple flex items-center justify-center text-white font-display font-extrabold text-xl shadow-lg shadow-purple-500/20">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-crew-green to-crew-purple flex items-center justify-center text-white font-display font-extrabold text-xl shadow-lg shadow-emerald-500/20">
                     <i class="fa-solid fa-basketball"></i>
                 </div>
                 <div>
@@ -122,8 +129,8 @@
             </nav>
 
             <div class="flex items-center gap-4">
-                <a href="#recruitment" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-display font-bold text-sm text-white bg-gradient-to-r from-crew-green to-crew-purple hover:opacity-95 transition-all shadow-md shadow-purple-500/20">
-                    Run With Us
+                <a href="#recruitment" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-display font-bold text-sm text-white bg-gradient-to-r from-crew-green to-crew-purple hover:opacity-95 transition-all shadow-lg shadow-emerald-500/20">
+                    <i class="fa-solid fa-user-plus mr-2"></i> Run With Us
                 </a>
                 <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2" aria-label="Toggle Menu">
                     <i class="fa-solid fa-bars text-2xl"></i>
@@ -140,34 +147,32 @@
         </div>
     </header>
 
-    <!-- Intro & Hero Section -->
     <section id="intro" class="relative pt-32 pb-20 hero-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-14">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-crew-purple/40 text-xs font-semibold text-purple-300 mb-6">
                     <i class="fa-solid fa-basketball text-crew-green"></i> Unselfish Basketball • Free VC & Merch Rewards
                 </div>
-                
+
                 <h1 class="font-display text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6">
                     Real Basketball. <br><span class="gradient-text">Unselfish Play. Great Perks.</span>
                 </h1>
-                
+
                 <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8">
-                    We’re a group of friendly basketball enthusiasts who love authentic, high-IQ hoops in NBA 2K. 
+                    We’re a group of friendly basketball enthusiasts who love authentic, high-IQ hoops in NBA 2K.
                     No ego, no 40-second dribble combos, and zero toxicity — just extra passes, solid defense, clean team hoops, plus awesome crew giveaways!
                 </p>
 
                 <div class="flex flex-wrap items-center justify-center gap-4">
-                    <a href="#recruitment" class="px-6 py-3.5 rounded-xl font-display font-bold text-sm text-white bg-crew-green hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20 flex items-center gap-2">
+                    <a href="#recruitment" class="px-6 py-3.5 rounded-xl font-display font-bold text-sm text-white bg-crew-green hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20">
                         <i class="fa-solid fa-user-plus"></i> Join The Squad
                     </a>
-                    <a href="#perks" class="px-6 py-3.5 rounded-xl font-display font-bold text-sm text-white bg-crew-purple/30 hover:bg-crew-purple/50 border border-crew-purple/40 transition-all flex items-center gap-2">
+                    <a href="#perks" class="px-6 py-3.5 rounded-xl font-display font-bold text-sm text-white bg-crew-purple/30 hover:bg-crew-purple/50 border border-crew-purple/40 transition-all">
                         <i class="fa-solid fa-gift text-crew-purple"></i> View Crew Perks
                     </a>
                 </div>
             </div>
 
-            <!-- Featured Intro Video Embed -->
             <div class="max-w-4xl mx-auto glass-card rounded-3xl p-3 border border-white/10 shadow-2xl">
                 <div class="relative aspect-video rounded-2xl overflow-hidden bg-black">
                     <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1" title="Crew Intro & Playstyle Overview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -183,7 +188,6 @@
         </div>
     </section>
 
-    <!-- Meet The Crew Section -->
     <section id="crew" class="py-24 relative bg-crew-black/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -194,14 +198,13 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Player 1 -->
                 <div class="glass-card rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1">
                     <div class="flex items-center gap-4 mb-4">
-                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&auto=format&fit=crop&q=80" alt="Marcus" class="w-16 h-16 rounded-2xl object-cover border-2 border-crew-green">
+                        <img src="TwoTDCprofile.jpg" alt="Drew" class="w-16 h-16 rounded-2xl object-cover border-2 border-crew-green/40">
                         <div>
                             <span class="text-xs font-bold uppercase tracking-wider text-crew-green">Floor General</span>
-                            <h3 class="font-display text-xl font-bold text-white">Marcus "Marc"</h3>
-                            <p class="text-xs text-slate-400"><i class="fa-brands fa-playstation text-blue-400 mr-1"></i>Marc_PassFirst</p>
+                            <h3 class="font-display text-xl font-bold text-white">Drew "Two"</h3>
+                            <p class="text-xs text-slate-400"><i class="fa-brands fa-playstation text-blue-400 mr-1"></i>Twooh Two TDC</p>
                         </div>
                     </div>
                     <p class="text-slate-300 text-sm leading-relaxed mb-4">
@@ -213,14 +216,13 @@
                     </div>
                 </div>
 
-                <!-- Player 2 -->
                 <div class="glass-card rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1">
                     <div class="flex items-center gap-4 mb-4">
-                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&auto=format&fit=crop&q=80" alt="Dave" class="w-16 h-16 rounded-2xl object-cover border-2 border-crew-purple">
+                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&auto=format&fit=crop&q=80" alt="T-Bird" class="w-16 h-16 rounded-2xl object-cover border-2 border-crew-purple/40">
                         <div>
                             <span class="text-xs font-bold uppercase tracking-wider text-crew-purple">Lockdown Wing</span>
-                            <h3 class="font-display text-xl font-bold text-white">Dave "D-Smooth"</h3>
-                            <p class="text-xs text-slate-400"><i class="fa-brands fa-xbox text-green-400 mr-1"></i>DSmooth_3D</p>
+                            <h3 class="font-display text-xl font-bold text-white">T-Bird "Filthy"</h3>
+                            <p class="text-xs text-slate-400"><i class="fa-brands fa-xbox text-green-400 mr-1"></i>FiLTHY1 TDC</p>
                         </div>
                     </div>
                     <p class="text-slate-300 text-sm leading-relaxed mb-4">
@@ -232,14 +234,13 @@
                     </div>
                 </div>
 
-                <!-- Player 3 -->
                 <div class="glass-card rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1">
                     <div class="flex items-center gap-4 mb-4">
-                        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=400&auto=format&fit=crop&q=80" alt="Sam" class="w-16 h-16 rounded-2xl object-cover border-2 border-white">
+                        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=400&auto=format&fit=crop&q=80" alt="Xaye" class="w-16 h-16 rounded-2xl object-cover border-2 border-slate-500/40">
                         <div>
                             <span class="text-xs font-bold uppercase tracking-wider text-slate-200">Anchor Center</span>
-                            <h3 class="font-display text-xl font-bold text-white">Sam "Big Sam"</h3>
-                            <p class="text-xs text-slate-400"><i class="fa-brands fa-playstation text-blue-400 mr-1"></i>SamTheAnchor</p>
+                            <h3 class="font-display text-xl font-bold text-white">Xaye "Tiger"</h3>
+                            <p class="text-xs text-slate-400"><i class="fa-brands fa-playstation text-blue-400 mr-1"></i>Tigerbol TDC</p>
                         </div>
                     </div>
                     <p class="text-slate-300 text-sm leading-relaxed mb-4">
@@ -254,7 +255,6 @@
         </div>
     </section>
 
-    <!-- Highlight Tapes Section -->
     <section id="highlights" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
@@ -264,7 +264,6 @@
                 <p class="text-slate-400 mt-2 text-sm sm:text-base">Check out our team ball movement and individual highlight tapes.</p>
             </div>
 
-            <!-- Main Team Highlight Reel -->
             <div class="mb-12 glass-card rounded-3xl p-6 border border-white/10">
                 <div class="flex items-center justify-between mb-4">
                     <div>
@@ -278,41 +277,37 @@
                 </div>
             </div>
 
-            <!-- Player Individual Highlight Selector Grid -->
             <h3 class="font-display text-xl font-bold text-white mb-6 flex items-center gap-2">
                 <i class="fa-solid fa-film text-crew-purple"></i> Player Specific Mixes
             </h3>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Highlight Card 1 -->
                 <div class="glass-card rounded-2xl p-4 flex flex-col justify-between hover:border-crew-green/40 transition-all group">
                     <div class="relative aspect-video rounded-xl overflow-hidden mb-3 bg-black">
-                        <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1" title="Marcus Highlights" allowfullscreen></iframe>
+                        <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1" title="Drew Highlights" allowfullscreen></iframe>
                     </div>
                     <div>
-                        <h4 class="font-display font-bold text-white text-base group-hover:text-crew-green transition-colors">Marcus' Assist & Pick-And-Roll Tape</h4>
+                        <h4 class="font-display font-bold text-white text-base group-hover:text-crew-green transition-colors">Drew's Assist & Pick-And-Roll Tape</h4>
                         <p class="text-xs text-slate-400 mt-1">High-IQ passing, floor spacing, and clutch assists.</p>
                     </div>
                 </div>
 
-                <!-- Highlight Card 2 -->
                 <div class="glass-card rounded-2xl p-4 flex flex-col justify-between hover:border-crew-purple/40 transition-all group">
                     <div class="relative aspect-video rounded-xl overflow-hidden mb-3 bg-black">
-                        <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1" title="Dave Highlights" allowfullscreen></iframe>
+                        <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1" title="T-Bird Highlights" allowfullscreen></iframe>
                     </div>
                     <div>
-                        <h4 class="font-display font-bold text-white text-base group-hover:text-crew-purple transition-colors">Dave's Perimeter Clamps & Corner Threes</h4>
+                        <h4 class="font-display font-bold text-white text-base group-hover:text-crew-purple transition-colors">T-Bird's Perimeter Clamps & Corner Threes</h4>
                         <p class="text-xs text-slate-400 mt-1">Steals, fastbreak finishes, and 100% green release quarters.</p>
                     </div>
                 </div>
 
-                <!-- Highlight Card 3 -->
                 <div class="glass-card rounded-2xl p-4 flex flex-col justify-between hover:border-crew-green/40 transition-all group">
                     <div class="relative aspect-video rounded-xl overflow-hidden mb-3 bg-black">
-                        <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1" title="Sam Highlights" allowfullscreen></iframe>
+                        <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1" title="Xaye Highlights" allowfullscreen></iframe>
                     </div>
                     <div>
-                        <h4 class="font-display font-bold text-white text-base group-hover:text-crew-green transition-colors">Sam's Paint Protection & Screens</h4>
+                        <h4 class="font-display font-bold text-white text-base group-hover:text-crew-green transition-colors">Xaye's Paint Protection & Screens</h4>
                         <p class="text-xs text-slate-400 mt-1">Chase-down blocks, boxing out, and secondary playmaking.</p>
                     </div>
                 </div>
@@ -320,7 +315,6 @@
         </div>
     </section>
 
-    <!-- Crew Perks Section -->
     <section id="perks" class="py-24 relative bg-crew-black/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -331,7 +325,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Perk 1: Free VC Giveaways -->
                 <div class="glass-card rounded-3xl p-6 flex flex-col gap-3 relative overflow-hidden group border border-crew-green/30">
                     <div class="w-12 h-12 rounded-2xl bg-crew-green/20 border border-crew-green/40 flex items-center justify-center text-crew-green text-xl">
                         <i class="fa-solid fa-coins"></i>
@@ -343,7 +336,6 @@
                     </p>
                 </div>
 
-                <!-- Perk 2: Custom Crew Merch -->
                 <div class="glass-card rounded-3xl p-6 flex flex-col gap-3 relative overflow-hidden group border border-crew-purple/30">
                     <div class="w-12 h-12 rounded-2xl bg-crew-purple/20 border border-crew-purple/40 flex items-center justify-center text-crew-purple text-xl">
                         <i class="fa-solid fa-shirt"></i>
@@ -355,7 +347,6 @@
                     </p>
                 </div>
 
-                <!-- Perk 3: Rage Free (Joking version) -->
                 <div class="glass-card rounded-3xl p-6 flex flex-col gap-3 border border-white/10 hover:border-crew-green/40 transition-colors">
                     <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white text-xl">
                         <i class="fa-solid fa-face-laugh-squint text-crew-green"></i>
@@ -363,11 +354,10 @@
                     <span class="text-xs font-extrabold uppercase tracking-widest text-crew-green">Mostly Peaceful</span>
                     <h3 class="font-display text-xl font-bold text-white">99.9% "Rage-Free" Zone *</h3>
                     <p class="text-slate-300 text-sm leading-relaxed">
-                        Okay, look... we <span class="italic text-slate-200">might</span> yell at 2K's questionable animations, bad catch-and-shoot latency, or in the high-stakes pursuit of a dub. But we <strong class="text-white">never</strong> rage at teammates! Bad passes happen — just pass it back next play.
+                        Okay, look... we <span class="italic text-slate-200">might</span> yell at 2K's questionable animations, bad catch-and-shoot latency, or in the high-stakes pursuit of a dub, but that's only if the defense forgets our spacing.
                     </p>
                 </div>
 
-                <!-- Perk 4: High IQ Hoops -->
                 <div class="glass-card rounded-3xl p-6 flex flex-col gap-3">
                     <div class="w-12 h-12 rounded-2xl bg-crew-green/20 border border-crew-green/40 flex items-center justify-center text-crew-green text-xl">
                         <i class="fa-solid fa-arrows-split-up-and-left"></i>
@@ -379,7 +369,6 @@
                     </p>
                 </div>
 
-                <!-- Perk 5: Discord & Giveaways -->
                 <div class="glass-card rounded-3xl p-6 flex flex-col gap-3">
                     <div class="w-12 h-12 rounded-2xl bg-crew-purple/20 border border-crew-purple/40 flex items-center justify-center text-crew-purple text-xl">
                         <i class="fa-brands fa-discord"></i>
@@ -391,7 +380,6 @@
                     </p>
                 </div>
 
-                <!-- Perk 6: Flexible Schedule -->
                 <div class="glass-card rounded-3xl p-6 flex flex-col gap-3">
                     <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white text-xl">
                         <i class="fa-solid fa-calendar-check"></i>
@@ -406,7 +394,6 @@
         </div>
     </section>
 
-    <!-- Recruitment Section -->
     <section id="recruitment" class="py-24 relative">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="glass-card rounded-3xl p-8 sm:p-10 border border-white/10 shadow-2xl">
@@ -457,7 +444,7 @@
                         <textarea rows="3" placeholder="Tell us a bit about your playstyle or when you usually like to jump online..." class="w-full bg-slate-900/80 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-crew-green transition-colors"></textarea>
                     </div>
 
-                    <button type="submit" class="w-full py-3.5 rounded-xl font-display font-bold text-sm text-white bg-gradient-to-r from-crew-green to-crew-purple hover:opacity-95 transition-all shadow-lg shadow-purple-500/20 flex items-center justify-center gap-2">
+                    <button type="submit" class="w-full py-3.5 rounded-xl font-display font-bold text-sm text-white bg-gradient-to-r from-crew-green to-crew-purple hover:opacity-95 transition-all shadow-lg shadow-emerald-500/20">
                         <i class="fa-solid fa-paper-plane"></i> Send Squad Request
                     </button>
                 </form>
@@ -465,7 +452,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-crew-black border-t border-white/10 py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-3">
@@ -498,7 +484,6 @@
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
             toast.className = "pointer-events-auto glass-card border border-crew-green/40 p-4 rounded-xl shadow-lg flex items-start gap-3 w-80 transform translate-y-4 opacity-0 transition-all duration-300";
-
             toast.innerHTML = `
                 <div class="text-crew-green text-lg mt-0.5"><i class="fa-solid fa-circle-check"></i></div>
                 <div>
@@ -532,4 +517,3 @@
     </script>
 </body>
 </html>
-```
