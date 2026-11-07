@@ -44,12 +44,12 @@
             --panel-black: #08080c;
             --soft-white: #edf7ef;
             --soft-light: #dfe9f4;
+            --line: rgba(255,255,255,0.1);
         }
 
-        html,
-        body {
+        html, body {
             min-height: 100%;
-            background: var(--page-black) !important;
+            background: var(--page-black);
             color: var(--soft-white);
         }
 
@@ -62,16 +62,28 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        section,
-        footer {
-            background-color: var(--page-black) !important;
+        section, footer {
+            background-color: var(--page-black);
         }
 
         .hero-bg {
-            background-color: var(--page-black) !important;
-            background-image:
+            background:
                 radial-gradient(circle at 18% 20%, rgba(57, 255, 20, 0.08), transparent 30%),
-                radial-gradient(circle at 82% 25%, rgba(208, 0, 255, 0.10), transparent 32%);
+                radial-gradient(circle at 82% 25%, rgba(208, 0, 255, 0.10), transparent 32%),
+                linear-gradient(180deg, rgba(0,0,0,1), rgba(0,0,0,0.98));
+        }
+
+        .glow-line {
+            position: relative;
+        }
+
+        .glow-line::before {
+            content: "";
+            position: absolute;
+            inset: auto 0 -12px 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(57,255,20,0.9), rgba(208,0,255,0.9), transparent);
+            box-shadow: 0 0 14px rgba(57,255,20,0.5);
         }
 
         .glass-card {
@@ -119,57 +131,103 @@
             box-shadow: 0 0 18px rgba(208, 0, 255, 0.25);
         }
 
-        a,
-        button {
-            transition:
-                color 180ms ease,
-                border-color 180ms ease,
-                box-shadow 180ms ease,
-                background-color 180ms ease;
+        a, button {
+            transition: color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
         }
 
-        a:hover,
-        button:hover {
-            text-shadow: 0 0 8px rgba(57, 255, 20, 0.45);
+        a:hover, button:hover {
+            text-shadow: 0 0 8px rgba(57,255,20,0.45);
         }
 
         .badge-green {
             background: rgba(57, 255, 20, 0.10);
             color: #a7ff91;
             border: 1px solid rgba(57, 255, 20, 0.65);
-            box-shadow:
-                0 0 12px rgba(57, 255, 20, 0.22),
-                inset 0 0 8px rgba(57, 255, 20, 0.08);
+            box-shadow: 0 0 12px rgba(57,255,20,0.22), inset 0 0 8px rgba(57,255,20,0.08);
         }
 
         .badge-purple {
             background: rgba(208, 0, 255, 0.10);
             color: #ed9cff;
             border: 1px solid rgba(208, 0, 255, 0.65);
-            box-shadow:
-                0 0 12px rgba(208, 0, 255, 0.22),
-                inset 0 0 8px rgba(208, 0, 255, 0.08);
+            box-shadow: 0 0 12px rgba(208,0,255,0.22), inset 0 0 8px rgba(208,0,255,0.08);
         }
 
-        input,
-        select,
-        textarea {
-            background-color: var(--panel-black) !important;
-            color: var(--soft-white) !important;
-            border-color: rgba(255, 255, 255, 0.18) !important;
+        .stats-bar {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.02);
         }
 
-        input::placeholder,
-        textarea::placeholder {
-            color: #94a3b8;
+        .hero-panel {
+            position: relative;
+            background: linear-gradient(135deg, rgba(16,16,20,0.96), rgba(12,12,18,0.9));
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 0 30px rgba(57,255,20,0.08), 0 0 30px rgba(208,0,255,0.08);
         }
 
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color: var(--electric-green) !important;
-            box-shadow: 0 0 12px rgba(57, 255, 20, 0.25);
-            outline: none;
+        .hero-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 26px 26px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .pulse-orb {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border-radius: 9999px;
+            filter: blur(64px);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .pulse-orb.green {
+            background: rgba(57,255,20,0.25);
+            top: -80px;
+            right: 40px;
+        }
+
+        .pulse-orb.purple {
+            background: rgba(208,0,255,0.22);
+            bottom: -80px;
+            left: 20px;
+        }
+
+        .floating-card {
+            position: absolute;
+            right: -12px;
+            bottom: 30px;
+            width: 190px;
+            background: rgba(9,9,12,0.86);
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.45);
+        }
+
+        .floating-card.left {
+            left: -12px;
+            right: auto;
+            bottom: 62px;
+            width: 170px;
+        }
+
+        .floating-pill {
+            border: 1px solid rgba(57,255,20,0.3);
+            background: rgba(57,255,20,0.06);
+            color: var(--electric-green);
+        }
+
+        .floating-pill.purple {
+            border-color: rgba(208,0,255,0.35);
+            background: rgba(208,0,255,0.06);
+            color: var(--electric-purple);
         }
 
         .reveal {
@@ -207,7 +265,7 @@
         }
 
         .cta-glow {
-            box-shadow: 0 0 18px rgba(57, 255, 20, 0.22), 0 0 28px rgba(208, 0, 255, 0.18);
+            box-shadow: 0 0 18px rgba(57,255,20,0.22), 0 0 28px rgba(208,0,255,0.18);
         }
 
         .section-divider {
@@ -215,6 +273,22 @@
             height: 2px;
             background: linear-gradient(90deg, var(--electric-green), var(--electric-purple));
             box-shadow: 0 0 12px rgba(57,255,20,0.5);
+        }
+
+        input, select, textarea {
+            background-color: var(--panel-black) !important;
+            color: var(--soft-white) !important;
+            border-color: rgba(255,255,255,0.18) !important;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--electric-green) !important;
+            box-shadow: 0 0 12px rgba(57,255,20,0.25);
+            outline: none;
         }
 
         ::-webkit-scrollbar {
@@ -228,18 +302,18 @@
         ::-webkit-scrollbar-thumb {
             background: var(--electric-purple);
             border-radius: 4px;
-            box-shadow: 0 0 8px rgba(208, 0, 255, 0.55);
+            box-shadow: 0 0 8px rgba(208,0,255,0.55);
         }
 
         ::-webkit-scrollbar-thumb:hover {
             background: var(--electric-green);
-            box-shadow: 0 0 8px rgba(57, 255, 20, 0.65);
+            box-shadow: 0 0 8px rgba(57,255,20,0.65);
         }
 
         :focus-visible {
             outline: 2px solid var(--electric-green);
             outline-offset: 3px;
-            box-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+            box-shadow: 0 0 10px rgba(57,255,20,0.4);
         }
     </style>
 </head>
@@ -292,63 +366,114 @@
     <!-- Hero -->
     <section id="intro" class="relative pt-32 pb-20 hero-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-14 reveal">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-crew-purple/40 text-xs font-semibold text-purple-300 mb-6">
-                    <i class="fa-solid fa-basketball text-crew-green"></i>
-                    Unselfish Basketball • Free VC & Merch Rewards
+            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
+                <div class="text-left max-w-3xl reveal">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-crew-purple/40 text-xs font-semibold text-purple-300 mb-6">
+                        <i class="fa-solid fa-basketball text-crew-green"></i>
+                        Unselfish Basketball • Free VC & Merch Rewards
+                    </div>
+
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                        Real Basketball.<br>
+                        <span class="gradient-text">Unselfish Play. Great Perks.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl">
+                        We’re a group of friendly basketball enthusiasts who love authentic, high-IQ hoops in NBA 2K.
+                        No ego, no 40-second dribble combos, and zero toxicity — just extra passes, solid defense,
+                        clean team hoops, plus awesome family giveaways.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4">
+                        <a href="#recruitment" class="cta-glow px-6 py-3.5 rounded-xl font-display font-bold text-sm text-white bg-crew-green hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20">
+                            <i class="fa-solid fa-user-plus"></i> Join The Family
+                        </a>
+                        <a href="#perks" class="px-6 py-3.5 rounded-xl font-display font-bold text-sm text-white bg-crew-purple/30 hover:bg-crew-purple/50 border border-crew-purple/40 transition-all shadow-lg shadow-purple-500/20">
+                            <i class="fa-solid fa-gift text-crew-purple"></i> View Family Perks
+                        </a>
+                    </div>
+
+                    <div class="mt-8 flex flex-wrap items-center gap-3">
+                        <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-crew-green/30 bg-crew-green/5 text-xs font-semibold text-crew-green">
+                            <i class="fa-solid fa-star"></i> High IQ Basketball
+                        </span>
+                        <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-crew-purple/30 bg-crew-purple/5 text-xs font-semibold text-crew-purple">
+                            <i class="fa-solid fa-calendar-check"></i> Weekly Family Runs
+                        </span>
+                        <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-white/10 bg-white/5 text-xs font-semibold text-slate-200">
+                            <i class="fa-solid fa-gift"></i> Free VC & Merch
+                        </span>
+                    </div>
                 </div>
 
-                <h1 class="font-display text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6">
-                    Real Basketball.<br>
-                    <span class="gradient-text">Unselfish Play. Great Perks.</span>
-                </h1>
+                <div class="hero-panel rounded-[28px] p-5 sm:p-6 reveal">
+                    <div class="pulse-orb green"></div>
+                    <div class="pulse-orb purple"></div>
 
-                <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8">
-                    We’re a group of friendly basketball enthusiasts who love authentic, high-IQ hoops in NBA 2K.
-                    No ego, no 40-second dribble combos, and zero toxicity — just extra passes, solid defense,
-                    clean team hoops, plus awesome family giveaways!
-                </p>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-5">
+                            <span class="text-xs font-bold uppercase tracking-[0.20em] text-crew-green">Live Family</span>
+                            <span class="floating-pill purple text-[10px] px-2 py-1 rounded-full font-semibold">Online</span>
+                        </div>
 
-                <div class="flex flex-wrap items-center justify-center gap-4">
-                    <a href="#recruitment" class="cta-glow px-6 py-3.5 rounded-xl font-display font-bold text-sm text-white bg-crew-green hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20">
-                        <i class="fa-solid fa-user-plus"></i> Join The Family
-                    </a>
-                    <a href="#perks" class="px-6 py-3.5 rounded-xl font-display font-bold text-sm text-white bg-crew-purple/30 hover:bg-crew-purple/50 border border-crew-purple/40 transition-all shadow-lg shadow-purple-500/20">
-                        <i class="fa-solid fa-gift text-crew-purple"></i> View Family Perks
-                    </a>
-                </div>
+                        <div class="aspect-[4/3] relative overflow-hidden rounded-2xl border border-white/10 bg-black">
+                            <iframe
+                                class="w-full h-full"
+                                src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1"
+                                title="TDC Intro and Playstyle Overview"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
 
-                <!-- Trust badges -->
-                <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-                    <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-crew-green/30 bg-crew-green/5 text-xs font-semibold text-crew-green">
-                        <i class="fa-solid fa-star"></i> High IQ Basketball
-                    </span>
-                    <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-crew-purple/30 bg-crew-purple/5 text-xs font-semibold text-crew-purple">
-                        <i class="fa-solid fa-calendar-check"></i> Weekly Family Runs
-                    </span>
-                    <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-white/10 bg-white/5 text-xs font-semibold text-slate-200">
-                        <i class="fa-solid fa-gift"></i> Free VC & Merch
-                    </span>
+                        <div class="mt-5 grid grid-cols-2 gap-3">
+                            <div class="glass-card rounded-2xl p-3">
+                                <div class="text-[10px] uppercase tracking-[0.18em] text-slate-400">Weekly runs</div>
+                                <div class="mt-1 font-display text-2xl font-extrabold text-white">4+</div>
+                            </div>
+                            <div class="glass-card rounded-2xl p-3">
+                                <div class="text-[10px] uppercase tracking-[0.18em] text-slate-400">Crew perks</div>
+                                <div class="mt-1 font-display text-2xl font-extrabold text-crew-green">VC</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="floating-card left rounded-2xl p-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase tracking-[0.18em] text-slate-400">Family vibe</span>
+                            <span class="floating-pill text-[9px] px-1.5 py-1 rounded-full font-semibold">High IQ</span>
+                        </div>
+                        <div class="mt-2 font-display text-lg font-extrabold text-white">Positive energy</div>
+                    </div>
+
+                    <div class="floating-card rounded-2xl p-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] uppercase tracking-[0.18em] text-slate-400">Crew reward</span>
+                            <span class="floating-pill purple text-[9px] px-1.5 py-1 rounded-full font-semibold">Free</span>
+                        </div>
+                        <div class="mt-2 font-display text-lg font-extrabold text-white">VC Drops</div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Featured Intro Video -->
-            <div class="max-w-4xl mx-auto glass-card rounded-3xl p-3 border border-white/10 shadow-2xl reveal">
-                <div class="relative aspect-video rounded-2xl overflow-hidden bg-black">
-                    <iframe
-                        class="w-full h-full"
-                        src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1"
-                        title="TDC Intro and Playstyle Overview"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm">
-                    <div class="flex items-center gap-3">
-                        <span class="w-2.5 h-2.5 rounded-full bg-crew-green animate-pulse"></span>
-                        <span class="font-semibold text-white">Our Philosophy & High-IQ Hoops Showcase</span>
+            <div class="stats-bar mt-12 py-4 reveal">
+                <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="stat-card rounded-2xl p-4">
+                        <div class="text-[10px] uppercase tracking-[0.22em] text-slate-400">Crew focus</div>
+                        <div class="font-display text-2xl font-extrabold text-white mt-2">High IQ</div>
                     </div>
-                    <span class="text-slate-400 text-xs">Full Team Overview • 3 min watch</span>
+                    <div class="stat-card rounded-2xl p-4">
+                        <div class="text-[10px] uppercase tracking-[0.22em] text-slate-400">Play style</div>
+                        <div class="font-display text-2xl font-extrabold text-white mt-2">Team Ball</div>
+                    </div>
+                    <div class="stat-card rounded-2xl p-4">
+                        <div class="text-[10px] uppercase tracking-[0.22em] text-slate-400">Community</div>
+                        <div class="font-display text-2xl font-extrabold text-crew-green mt-2">Discord</div>
+                    </div>
+                    <div class="stat-card rounded-2xl p-4">
+                        <div class="text-[10px] uppercase tracking-[0.22em] text-slate-400">Perks</div>
+                        <div class="font-display text-2xl font-extrabold text-crew-purple mt-2">VC + Merch</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -363,7 +488,7 @@
                     WHY <span class="gradient-text">TDC</span>
                 </h2>
                 <p class="text-slate-400 mt-2 text-sm sm:text-base">
-                    We built a family around good basketball, high energy, and strong chemistry.
+                    We built a family around good basketball, high energy, and stronger chemistry.
                 </p>
             </div>
 
@@ -415,7 +540,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <!-- Player 1: Drew -->
                 <div class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 reveal">
                     <div class="flex items-center gap-3 sm:gap-4 mb-4 min-h-24 sm:min-h-28">
                         <img
@@ -442,7 +566,6 @@
                     </div>
                 </div>
 
-                <!-- Player 2: T-Bird -->
                 <div class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 reveal">
                     <div class="flex items-center gap-3 sm:gap-4 mb-4 min-h-24 sm:min-h-28">
                         <img
@@ -467,7 +590,6 @@
                     </div>
                 </div>
 
-                <!-- Player 3: Xaye -->
                 <div class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 reveal">
                     <div class="flex items-center gap-3 sm:gap-4 mb-4 min-h-24 sm:min-h-28">
                         <img
