@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Privacy notice for TDC applications.">
+    <title>Privacy Notice // TDC</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        crew: {
+                            green: '#39ff14',
+                            purple: '#d000ff',
+                            black: '#000000',
+                            dark: '#08080c'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        :root {
+            --crew-green: #39ff14;
+            --crew-purple: #d000ff;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 15% 15%, rgba(57, 255, 20, 0.08), transparent 32%),
+                radial-gradient(circle at 85% 20%, rgba(208, 0, 255, 0.10), transparent 34%),
+                #000;
+        }
+
+        .gradient-text {
+            background: linear-gradient(110deg, var(--crew-green), var(--crew-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .glass-card {
+            background: rgba(8, 8, 12, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 35px rgba(57, 255, 20, 0.06), 0 0 45px rgba(208, 0, 255, 0.07);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--crew-green);
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+
+<body class="flex min-h-screen flex-col font-sans text-slate-100 antialiased">
+    <header class="border-b border-white/10">
+        <div class="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
+            <a href="./#intro" class="inline-flex items-center gap-3" aria-label="TDC home">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-crew-green to-crew-purple text-xl text-black" aria-hidden="true">🏀</span>
+                <span>
+                    <span class="block font-display text-lg font-extrabold tracking-wide text-white">TDC</span>
+                    <span class="block text-xs font-semibold text-crew-green">The DEMONStration CREW</span>
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <main class="mx-auto w-full max-w-4xl flex-1 px-4 py-12 sm:px-6 sm:py-16">
+        <article class="glass-card rounded-3xl p-6 sm:p-10 lg:p-12">
+            <p class="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-crew-green">TDC Crew Information</p>
+            <h1 class="font-display text-3xl font-extrabold text-white sm:text-5xl">
+                Privacy <span class="gradient-text">Notice</span>
+            </h1>
+            <p class="mt-4 text-sm text-slate-400">Last updated: November 7, 2026</p>
+
+            <div class="mt-8 space-y-8 text-sm leading-7 text-slate-300 sm:text-base">
+                <section aria-labelledby="information-collected">
+                    <h2 id="information-collected" class="font-display text-lg font-bold text-white">Information we collect</h2>
+                    <p class="mt-2">
+                        When you submit the TDC application form, we collect the information you enter. This may include your player tag, email address, platform, preferred position, build and play style, usual play times, communication preferences, social handle, and your written answers. Please do not submit passwords or other sensitive account information.
+                    </p>
+                </section>
+
+                <section aria-labelledby="how-we-use-information">
+                    <h2 id="how-we-use-information" class="font-display text-lg font-bold text-white">How we use your information</h2>
+                    <p class="mt-2">
+                        TDC uses the information you provide to review your application, learn about your play preferences, and contact you about joining the crew.
+                    </p>
+                </section>
+
+                <section aria-labelledby="form-service">
+                    <h2 id="form-service" class="font-display text-lg font-bold text-white">Form processing and delivery</h2>
+                    <p class="mt-2">
+                        Our application form is processed by Static Forms. The submission is delivered to the recipient inbox configured for the TDC Static Forms account. Static Forms processes information submitted through the form to provide its service; its own privacy terms also apply to that processing.
+                    </p>
+                    <p class="mt-2">
+                        Review Static Forms’ current privacy information for details about its handling of submitted data.
+                    </p>
+                </section>
+
+                <section aria-labelledby="retention">
+                    <h2 id="retention" class="font-display text-lg font-bold text-white">How long we keep information</h2>
+                    <p class="mt-2">
+                        We keep application information only for as long as it is needed to review the application and follow up about joining, and then delete it. Please make sure this describes your actual retention and deletion practices before publishing this notice.
+                    </p>
+                </section>
+
+                <section aria-labelledby="contact">
+                    <h2 id="contact" class="font-display text-lg font-bold text-white">Questions or requests</h2>
+                    <p class="mt-2">
+                        To ask a question about information you submitted or request its deletion, contact TDC at
+                        <a class="font-semibold text-crew-green underline decoration-crew-green/50 underline-offset-4 hover:text-white" href="mailto:REPLACE-WITH-YOUR-CONTACT-EMAIL">REPLACE-WITH-YOUR-CONTACT-EMAIL</a>.
+                    </p>
+                </section>
+
+                <p class="border-t border-white/10 pt-5 text-xs leading-6 text-slate-400">
+                    This notice describes TDC’s stated handling of application information. Before publishing, replace the contact email above and confirm the recipient and retention details accurately reflect your setup and practices.
+                </p>
+            </div>
+
+            <a href="./#recruitment" class="mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-crew-green px-5 py-3 font-display text-sm font-bold text-black transition hover:brightness-110">
+                <span aria-hidden="true">←</span> Back to the application
+            </a>
+        </article>
+    </main>
+
+    <footer class="border-t border-white/10 px-4 py-6 text-center text-xs text-slate-500">
+        &copy; 2026 TDC • The DEMONStration CREW
+    </footer>
+</body>
+</html>
