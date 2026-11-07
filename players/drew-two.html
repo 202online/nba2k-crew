@@ -10,11 +10,11 @@
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://202online.github.io/nba2k-crew/players/drew-two.html">
-    <meta property="og:title" content="Drew “Two” // TDC Player Profile">
+    <meta property="og:title" content="The 2k18 Demonstration // Drew “Two”">
     <meta property="og:description" content="Meet Drew “Two”, TDC floor general.">
     <meta property="og:image" content="https://202online.github.io/nba2k-crew/TwoTDCprofile.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Drew “Two” // TDC Player Profile">
+    <meta name="twitter:title" content="The 2k18 Demonstration // Drew “Two”">
     <meta name="twitter:description" content="Meet Drew “Two”, TDC floor general.">
     <meta name="twitter:image" content="https://202online.github.io/nba2k-crew/TwoTDCprofile.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -60,7 +60,7 @@
             <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center">
               <div class="flex flex-col gap-6 sm:flex-row sm:items-center">
                 <button type="button" class="profile-image-button h-32 w-32 shrink-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-crew-green" aria-label="View larger profile picture of Drew Two" aria-haspopup="dialog" aria-controls="profile-photo-dialog">
-                    <img src="../TwoTDCprofile.jpg" alt="Drew “Two” TDC profile artwork" class="h-full w-full rounded-2xl border-2 border-crew-green/70 object-cover shadow-[0_0_20px_rgba(57,255,20,0.2)]">
+                    <img src="../TwoTDCprofile.webp" alt="Drew “Two” TDC profile artwork" class="h-full w-full rounded-2xl border-2 border-crew-green/70 object-cover shadow-[0_0_20px_rgba(57,255,20,0.2)]">
                 </button>
                 <div>
                     <p class="text-xs font-bold uppercase tracking-[0.25em] text-crew-green">Player profile · Floor General</p>
@@ -88,16 +88,19 @@
                 <div class="highlight-layout mt-4">
                     <div class="highlight-feature" data-highlight-feature>
                         <div class="aspect-video overflow-hidden rounded-xl bg-black">
-                            <iframe class="h-full w-full" src="https://www.youtube-nocookie.com/embed/xshat_fx46g?start=8" title="Drew’s highlight video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <button type="button" class="highlight-preview" data-highlight-play aria-label="Load and play The 2k18 Demonstration">
+                                <img src="https://img.youtube.com/vi/xshat_fx46g/hqdefault.jpg" alt="" loading="lazy">
+                                <span><i class="fa-solid fa-play mr-2" aria-hidden="true"></i>Load highlight</span>
+                            </button>
                         </div>
-                        <p class="mt-3 text-sm text-slate-300" data-highlight-caption aria-live="polite">Now showing: Drew’s highlight</p>
+                        <p class="mt-3 text-sm text-slate-300" data-highlight-caption aria-live="polite">Selected: The 2k18 Demonstration</p>
                         <a href="https://www.youtube.com/watch?v=xshat_fx46g&amp;t=8s" data-highlight-watch class="mt-2 inline-block text-sm font-semibold text-crew-green underline underline-offset-4 hover:text-white">Watch on YouTube</a>
                     </div>
                     <div>
                         <h3 class="font-display text-sm font-bold uppercase tracking-wider text-white">Choose a highlight</h3>
                         <div class="highlight-list mt-3" data-highlight-list>
                             <!-- Copy a link and update its YouTube URL, video ID, start time in seconds, and title to add a clip. -->
-                            <a class="highlight-option" href="https://www.youtube.com/watch?v=xshat_fx46g&amp;t=8s" data-video-id="xshat_fx46g" data-start="8" data-video-title="Drew’s highlight" aria-current="true">Drew’s highlight</a>
+                            <a class="highlight-option" href="https://www.youtube.com/watch?v=xshat_fx46g&amp;t=8s" data-video-id="xshat_fx46g" data-start="8" data-video-title="The 2k18 Demonstration" aria-current="true">The 2k18 Demonstration</a>
                         </div>
                     </div>
                 </div>
@@ -109,7 +112,7 @@
         <form method="dialog" class="mb-3 flex justify-end">
             <button type="submit" class="rounded-lg border border-white/20 px-3 py-1 text-sm text-white hover:bg-white/10">Close <span aria-hidden="true">×</span></button>
         </form>
-        <img src="../TwoTDCprofile.jpg" alt="Drew “Two” TDC profile artwork, enlarged" class="mx-auto max-h-[78vh] max-w-full rounded-lg object-contain">
+        <img src="../TwoTDCprofile.webp" alt="Drew “Two” TDC profile artwork, enlarged" class="mx-auto max-h-[78vh] max-w-full rounded-lg object-contain">
     </dialog>
     <script>
         const profilePhotoDialog = document.getElementById('profile-photo-dialog');
