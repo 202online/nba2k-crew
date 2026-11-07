@@ -80,8 +80,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        .family-way-title,
-        .family-way-tally {
+        .family-way-title {
             font-family: 'Barlow Condensed', sans-serif;
         }
 
@@ -89,6 +88,20 @@
             font-family: 'Black Ops One', 'Barlow Condensed', sans-serif;
             letter-spacing: 0.04em;
             text-shadow: 2px 2px 0 rgba(208, 0, 255, 0.22);
+        }
+
+        .family-way-number {
+            display: flex;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            color: var(--electric-green);
+            font-family: 'Black Ops One', 'Barlow Condensed', sans-serif;
+            font-size: 2rem;
+            line-height: 1;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.35);
         }
 
         section,
@@ -340,25 +353,6 @@
             box-shadow: 0 12px 30px var(--item-glow);
         }
 
-        .family-way-tally {
-            display: flex;
-            flex: 0 0 auto;
-            align-items: center;
-            gap: 4px;
-            min-width: 48px;
-            height: 48px;
-        }
-
-        .family-way-tally i {
-            display: block;
-            width: 4px;
-            height: 31px;
-            border-radius: 2px;
-            background: var(--electric-green);
-            box-shadow: 0 0 9px rgba(57, 255, 20, 0.55);
-            transform: skew(-7deg);
-        }
-
         .family-way-kicker {
             color: var(--item-accent);
             font-size: 0.65rem;
@@ -446,15 +440,10 @@
                 padding: 1rem;
             }
 
-            .family-way-tally {
-                min-width: 40px;
+            .family-way-number {
+                width: 40px;
                 height: 40px;
-                gap: 3px;
-            }
-
-            .family-way-tally i {
-                width: 3px;
-                height: 26px;
+                font-size: 1.75rem;
             }
         }
 
@@ -849,7 +838,7 @@
                 <ol class="family-way-list space-y-4">
                     <li class="family-way-item rounded-2xl p-5 sm:p-6 reveal">
                         <div class="flex items-start gap-4 sm:gap-5">
-                            <span class="family-way-tally" role="img" aria-label="One lime-green tally mark"><i></i></span>
+                            <span class="family-way-number" aria-label="1">1</span>
                             <div class="min-w-0 pt-1">
                                 <p class="family-way-kicker mb-2">Compete for the win</p>
                                 <h3 class="family-way-title">Play To Win — F*** The Stats</h3>
@@ -859,7 +848,7 @@
 
                     <li class="family-way-item rounded-2xl p-5 sm:p-6 reveal">
                         <div class="flex items-start gap-4 sm:gap-5">
-                            <span class="family-way-tally" role="img" aria-label="Two lime-green tally marks"><i></i><i></i></span>
+                            <span class="family-way-number" aria-label="2">2</span>
                             <div class="min-w-0 pt-1">
                                 <p class="family-way-kicker mb-2">Enjoy the run</p>
                                 <h3 class="family-way-title">Have Fun — Always Our Top Priority, No Questions</h3>
@@ -869,7 +858,7 @@
 
                     <li class="family-way-item rounded-2xl p-5 sm:p-6 reveal">
                         <div class="flex items-start gap-4 sm:gap-5">
-                            <span class="family-way-tally" role="img" aria-label="Three lime-green tally marks"><i></i><i></i><i></i></span>
+                            <span class="family-way-number" aria-label="3">3</span>
                             <div class="min-w-0 pt-1">
                                 <p class="family-way-kicker mb-2">Make a play</p>
                                 <h3 class="family-way-title">MaP — Make a Play — Nobody Is Perfect</h3>
@@ -880,7 +869,7 @@
 
                     <li class="family-way-item rounded-2xl p-5 sm:p-6 reveal">
                         <div class="flex items-start gap-4 sm:gap-5">
-                            <span class="family-way-tally" role="img" aria-label="Four lime-green tally marks"><i></i><i></i><i></i><i></i></span>
+                            <span class="family-way-number" aria-label="4">4</span>
                             <div class="min-w-0 pt-1">
                                 <p class="family-way-kicker mb-2">Get better together</p>
                                 <h3 class="family-way-title">Iron Sharpens Iron</h3>
