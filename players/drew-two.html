@@ -35,6 +35,11 @@
     <style>
         body { min-height: 100vh; background: radial-gradient(circle at 15% 15%, rgba(57,255,20,.08), transparent 32%), radial-gradient(circle at 85% 20%, rgba(208,0,255,.1), transparent 34%), #000; }
         .glass-card { background: rgba(8,8,12,.95); border: 1px solid rgba(255,255,255,.12); box-shadow: 0 0 35px rgba(57,255,20,.06), 0 0 45px rgba(208,0,255,.07); backdrop-filter: blur(12px); }
+        .profile-image-button img { transition: transform 180ms ease; }
+        .profile-image-button:hover img, .profile-image-button:focus-visible img { transform: scale(1.12); }
+        .profile-image-dialog { max-width: min(92vw, 48rem); max-height: 92vh; padding: 1rem; border: 1px solid rgba(57,255,20,.45); border-radius: 1rem; background: #08080c; color: #edf7ef; }
+        .profile-image-dialog::backdrop { background: rgba(0,0,0,.86); backdrop-filter: blur(5px); }
+        @media (prefers-reduced-motion: reduce) { .profile-image-button img { transition: none; } }
         :focus-visible { outline: 2px solid #39ff14; outline-offset: 4px; }
     </style>
 </head>
@@ -51,7 +56,9 @@
         <a href="../index.html#crew" class="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-crew-green hover:text-white"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to the roster</a>
         <article class="glass-card rounded-3xl p-6 sm:p-10">
             <div class="flex flex-col gap-6 sm:flex-row sm:items-center">
-                <img src="../TwoTDCprofile.jpg" alt="Drew “Two” TDC profile artwork" class="h-32 w-32 rounded-2xl border-2 border-crew-green/70 object-cover shadow-[0_0_20px_rgba(57,255,20,0.2)]">
+                <button type="button" class="profile-image-button h-32 w-32 shrink-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-crew-green" aria-label="View larger profile picture of Drew Two" aria-haspopup="dialog" aria-controls="profile-photo-dialog">
+                    <img src="../TwoTDCprofile.jpg" alt="Drew “Two” TDC profile artwork" class="h-full w-full rounded-2xl border-2 border-crew-green/70 object-cover shadow-[0_0_20px_rgba(57,255,20,0.2)]">
+                </button>
                 <div>
                     <p class="text-xs font-bold uppercase tracking-[0.25em] text-crew-green">Player profile · Floor General</p>
                     <h1 class="mt-2 font-display text-3xl font-extrabold text-white sm:text-5xl">Drew <span class="text-crew-green">“Two”</span></h1>
@@ -77,5 +84,18 @@
         </article>
     </main>
     <footer class="border-t border-white/10 px-4 py-6 text-center text-xs text-slate-500">&copy; 2026 TDC • The DEMONStration CREW</footer>
+    <dialog id="profile-photo-dialog" class="profile-image-dialog w-[92vw]" aria-label="Drew Two profile picture">
+        <form method="dialog" class="mb-3 flex justify-end">
+            <button type="submit" class="rounded-lg border border-white/20 px-3 py-1 text-sm text-white hover:bg-white/10">Close <span aria-hidden="true">×</span></button>
+        </form>
+        <img src="../TwoTDCprofile.jpg" alt="Drew “Two” TDC profile artwork, enlarged" class="mx-auto max-h-[78vh] max-w-full rounded-lg object-contain">
+    </dialog>
+    <script>
+        const profilePhotoDialog = document.getElementById('profile-photo-dialog');
+        document.querySelector('.profile-image-button').addEventListener('click', () => profilePhotoDialog.showModal());
+        profilePhotoDialog.addEventListener('click', (event) => {
+            if (event.target === profilePhotoDialog) profilePhotoDialog.close();
+        });
+    </script>
 </body>
 </html>
