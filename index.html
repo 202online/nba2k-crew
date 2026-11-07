@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
     <script>
@@ -68,11 +67,12 @@
 
         .family-way-heading,
         .family-way-title,
-        .family-way-number {
+        .family-way-tally {
             font-family: 'Barlow Condensed', sans-serif;
         }
 
-        section, footer {
+        section,
+        footer {
             background-color: var(--page-black);
         }
 
@@ -270,8 +270,10 @@
             transform: translateY(0);
         }
 
+        /* Streetwear-inspired crew code cards */
         .family-way-list {
-            counter-reset: family-value;
+            list-style: none;
+            padding: 0;
         }
 
         .family-way-item {
@@ -319,21 +321,23 @@
             box-shadow: 0 12px 30px var(--item-glow);
         }
 
-        .family-way-number {
+        .family-way-tally {
             display: flex;
             flex: 0 0 auto;
             align-items: center;
-            justify-content: center;
-            width: 48px;
+            gap: 4px;
+            min-width: 48px;
             height: 48px;
-            color: var(--item-accent);
-            border: 1px solid var(--item-accent);
-            background: color-mix(in srgb, var(--item-accent) 10%, transparent);
-            font-size: 1.65rem;
-            font-weight: 900;
-            line-height: 1;
-            transform: skew(-5deg);
-            text-shadow: 0 0 12px var(--item-glow);
+        }
+
+        .family-way-tally i {
+            display: block;
+            width: 4px;
+            height: 31px;
+            border-radius: 2px;
+            background: var(--electric-green);
+            box-shadow: 0 0 9px rgba(57, 255, 20, 0.55);
+            transform: skew(-7deg);
         }
 
         .family-way-kicker {
@@ -423,10 +427,15 @@
                 padding: 1rem;
             }
 
-            .family-way-number {
-                width: 40px;
+            .family-way-tally {
+                min-width: 40px;
                 height: 40px;
-                font-size: 1.4rem;
+                gap: 3px;
+            }
+
+            .family-way-tally i {
+                width: 3px;
+                height: 26px;
             }
         }
 
@@ -456,8 +465,6 @@
 </head>
 
 <body class="antialiased selection:bg-crew-purple selection:text-white">
-    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3 pointer-events-none"></div>
-
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-40 glass-card border-b border-white/10" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -616,10 +623,18 @@
         <section aria-label="TDC team values" class="py-5 border-y border-white/10 bg-white/[0.02]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap justify-center gap-x-7 gap-y-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.12em]">
-                    <span class="inline-flex items-center gap-2 text-crew-green"><i class="fa-solid fa-people-group"></i> Teamwork</span>
-                    <span class="inline-flex items-center gap-2 text-crew-purple"><i class="fa-solid fa-brain"></i> High IQ</span>
-                    <span class="inline-flex items-center gap-2 text-slate-200"><i class="fa-solid fa-heart"></i> Positive Energy</span>
-                    <span class="inline-flex items-center gap-2 text-crew-green"><i class="fa-solid fa-share-nodes"></i> Unselfish Hoops</span>
+                    <span class="inline-flex items-center gap-2 text-crew-green">
+                        <i class="fa-solid fa-people-group"></i> Teamwork
+                    </span>
+                    <span class="inline-flex items-center gap-2 text-crew-purple">
+                        <i class="fa-solid fa-brain"></i> High IQ
+                    </span>
+                    <span class="inline-flex items-center gap-2 text-crew-green">
+                        <i class="fa-solid fa-heart"></i> Positive Energy
+                    </span>
+                    <span class="inline-flex items-center gap-2 text-crew-purple">
+                        <i class="fa-solid fa-share-nodes"></i> Unselfish Hoops
+                    </span>
                 </div>
             </div>
         </section>
@@ -629,7 +644,9 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-10 reveal">
                     <div class="section-divider mb-5"></div>
-                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">WHY <span class="gradient-text">TDC</span></h2>
+                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">
+                        WHY <span class="gradient-text">TDC</span>
+                    </h2>
                     <p class="text-slate-400 mt-3">Good basketball. Good people. Better chemistry.</p>
                 </div>
 
@@ -813,7 +830,9 @@
                 <ol class="family-way-list space-y-4">
                     <li class="family-way-item rounded-2xl p-5 sm:p-6 reveal">
                         <div class="flex items-start gap-4 sm:gap-5">
-                            <span class="family-way-number" aria-hidden="true">01</span>
+                            <span class="family-way-tally" role="img" aria-label="One lime-green tally mark">
+                                <i></i>
+                            </span>
                             <div class="min-w-0 pt-1">
                                 <p class="family-way-kicker mb-2">Compete for the win</p>
                                 <h3 class="family-way-title">Play To Win — F*** The Stats</h3>
@@ -823,7 +842,9 @@
 
                     <li class="family-way-item rounded-2xl p-5 sm:p-6 reveal">
                         <div class="flex items-start gap-4 sm:gap-5">
-                            <span class="family-way-number" aria-hidden="true">02</span>
+                            <span class="family-way-tally" role="img" aria-label="Two lime-green tally marks">
+                                <i></i><i></i>
+                            </span>
                             <div class="min-w-0 pt-1">
                                 <p class="family-way-kicker mb-2">Enjoy the run</p>
                                 <h3 class="family-way-title">Have Fun — Always Our Top Priority, No Questions</h3>
@@ -833,25 +854,27 @@
 
                     <li class="family-way-item rounded-2xl p-5 sm:p-6 reveal">
                         <div class="flex items-start gap-4 sm:gap-5">
-                            <span class="family-way-number" aria-hidden="true">03</span>
+                            <span class="family-way-tally" role="img" aria-label="Three lime-green tally marks">
+                                <i></i><i></i><i></i>
+                            </span>
                             <div class="min-w-0 pt-1">
-                                <p class="family-way-kicker mb-2">Get better together</p>
-                                <h3 class="family-way-title">Iron Sharpens Iron</h3>
-                                <p class="family-way-detail mt-2">
-                                    Healthy conflict breeds better chemistry. We are always a team.
-                                </p>
+                                <p class="family-way-kicker mb-2">Make a play</p>
+                                <h3 class="family-way-title">MaP — Make a Play — Nobody Is Perfect</h3>
+                                <p class="family-way-detail mt-2">Keep a short memory and stay ready to MaP.</p>
                             </div>
                         </div>
                     </li>
 
                     <li class="family-way-item rounded-2xl p-5 sm:p-6 reveal">
                         <div class="flex items-start gap-4 sm:gap-5">
-                            <span class="family-way-number" aria-hidden="true">04</span>
+                            <span class="family-way-tally" role="img" aria-label="Four lime-green tally marks">
+                                <i></i><i></i><i></i><i></i>
+                            </span>
                             <div class="min-w-0 pt-1">
-                                <p class="family-way-kicker mb-2">Make a play</p>
-                                <h3 class="family-way-title">MaP — Nobody Is Perfect</h3>
+                                <p class="family-way-kicker mb-2">Get better together</p>
+                                <h3 class="family-way-title">Iron Sharpens Iron</h3>
                                 <p class="family-way-detail mt-2">
-                                    Keep a short memory. Stay ready to MaP.
+                                    Healthy conflict breeds better chemistry. We are always a team.
                                 </p>
                             </div>
                         </div>
