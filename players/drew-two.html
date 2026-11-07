@@ -42,6 +42,7 @@
         @media (prefers-reduced-motion: reduce) { .profile-image-button img { transition: none; } }
         :focus-visible { outline: 2px solid #39ff14; outline-offset: 4px; }
     </style>
+    <link rel="stylesheet" href="./profile.css">
     <link rel="stylesheet" href="./highlights.css">
     <script src="./highlights.js" defer></script>
 </head>
@@ -58,17 +59,19 @@
         <a href="../index.html#crew" class="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-crew-green hover:text-white"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to the roster</a>
         <article class="glass-card rounded-3xl p-6 sm:p-10">
             <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center">
-              <div class="flex flex-col gap-6 sm:flex-row sm:items-center">
+              <div class="profile-identity">
                 <button type="button" class="profile-image-button h-32 w-32 shrink-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-crew-green" aria-label="View larger profile picture of Drew Two" aria-haspopup="dialog" aria-controls="profile-photo-dialog">
                     <img src="../TwoTDCprofile.webp" alt="Drew “Two” TDC profile artwork" class="h-full w-full rounded-2xl border-2 border-crew-green/70 object-cover shadow-[0_0_20px_rgba(57,255,20,0.2)]">
                 </button>
-                <div>
+                <div class="profile-details">
                     <p class="text-xs font-bold uppercase tracking-[0.25em] text-crew-green">Player profile · Floor General</p>
-                    <h1 class="mt-2 font-display text-3xl font-extrabold text-crew-green sm:text-5xl">Drew <span class="text-crew-purple">“Two”</span></h1>
-                    <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-300">
-                        <span><i class="fa-brands fa-xbox mr-2 text-crew-green" aria-hidden="true"></i>Twooh Two TDC</span>
-                        <a href="https://www.instagram.com/bigtwooh/" target="_blank" rel="noopener noreferrer" aria-label="Drew Two on Instagram" class="text-crew-purple transition hover:text-white"><i class="fa-brands fa-instagram mr-1" aria-hidden="true"></i>Instagram</a>
-                        <a href="https://www.tiktok.com/@twoohtwotdc" target="_blank" rel="noopener noreferrer" aria-label="Drew Two on TikTok" class="text-crew-purple transition hover:text-white"><i class="fa-brands fa-tiktok mr-1" aria-hidden="true"></i>TikTok</a>
+                    <h1 class="profile-name font-display font-extrabold text-crew-green">Drew <span class="text-crew-purple">“Two”</span></h1>
+                    <div class="profile-accounts text-sm text-slate-300">
+                        <span class="profile-gamertag"><i class="fa-brands fa-xbox text-crew-green" aria-hidden="true"></i>Twooh Two TDC</span>
+                        <div class="profile-socials">
+                            <a href="https://www.instagram.com/bigtwooh/" target="_blank" rel="noopener noreferrer" aria-label="Drew Two on Instagram" class="text-crew-purple transition hover:text-white"><i class="fa-brands fa-instagram" aria-hidden="true"></i>Instagram</a>
+                            <a href="https://www.tiktok.com/@twoohtwotdc" target="_blank" rel="noopener noreferrer" aria-label="Drew Two on TikTok" class="text-crew-purple transition hover:text-white"><i class="fa-brands fa-tiktok" aria-hidden="true"></i>TikTok</a>
+                        </div>
                     </div>
                 </div>
               </div>

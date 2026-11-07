@@ -42,6 +42,7 @@
         @media (prefers-reduced-motion: reduce) { .profile-image-button img { transition: none; } }
         :focus-visible { outline: 2px solid #39ff14; outline-offset: 4px; }
     </style>
+    <link rel="stylesheet" href="./profile.css">
     <link rel="stylesheet" href="./highlights.css">
     <script src="./highlights.js" defer></script>
 </head>
@@ -58,14 +59,16 @@
         <a href="../index.html#crew" class="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-crew-green hover:text-white"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to the roster</a>
         <article class="glass-card rounded-3xl p-6 sm:p-10">
             <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center">
-              <div class="flex flex-col gap-6 sm:flex-row sm:items-center">
+              <div class="profile-identity">
                 <button type="button" class="profile-image-button h-32 w-32 shrink-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-crew-purple" aria-label="View larger profile picture of T-Bird Filthy" aria-haspopup="dialog" aria-controls="profile-photo-dialog">
                     <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&amp;auto=format&amp;fit=crop&amp;q=80" alt="T-Bird “Filthy” profile photo" class="h-full w-full rounded-2xl border-2 border-crew-purple/70 object-cover shadow-[0_0_20px_rgba(208,0,255,0.2)]">
                 </button>
-                <div>
+                <div class="profile-details">
                     <p class="text-xs font-bold uppercase tracking-[0.25em] text-crew-purple">Player profile · Lockdown Wing</p>
-                    <h1 class="mt-2 font-display text-3xl font-extrabold text-crew-green sm:text-5xl">T-Bird <span class="text-crew-purple">“Filthy”</span></h1>
-                    <p class="mt-3 text-sm text-slate-300"><i class="fa-brands fa-xbox mr-2 text-crew-green" aria-hidden="true"></i>FiLTHY1 TDC</p>
+                    <h1 class="profile-name font-display font-extrabold text-crew-green">T-Bird <span class="text-crew-purple">“Filthy”</span></h1>
+                    <div class="profile-accounts text-sm text-slate-300">
+                        <span class="profile-gamertag"><i class="fa-brands fa-xbox text-crew-green" aria-hidden="true"></i>FiLTHY1 TDC</span>
+                    </div>
                 </div>
               </div>
                 <div class="space-y-4">
