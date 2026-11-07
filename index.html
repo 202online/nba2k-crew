@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000">
     <title>TDC // The DEMONStration CREW</title>
-    <meta name="description" content="Join The DEMONStration CREW for high-IQ NBA 2K, team chemistry, family runs, and a positive community.">
+    <meta name="description" content="TDC is a high-IQ basketball family built on chemistry, team play, and a positive gaming community.">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -65,8 +65,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        section,
-        footer {
+        section, footer {
             background-color: var(--page-black);
         }
 
@@ -144,6 +143,36 @@
             box-shadow: 0 0 12px rgba(57, 255, 20, 0.4);
         }
 
+        .stats-bar {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .stat-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(57,255,20,0.08), rgba(208,0,255,0.08));
+            opacity: 0;
+            transition: opacity 0.25s ease;
+            pointer-events: none;
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
         .hero-panel {
             position: relative;
             isolation: isolate;
@@ -219,36 +248,6 @@
             color: var(--electric-purple);
         }
 
-        .stats-bar {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .stat-card {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(57,255,20,0.08), rgba(208,0,255,0.08));
-            opacity: 0;
-            transition: opacity 0.25s ease;
-            pointer-events: none;
-        }
-
-        .stat-card:hover::before {
-            opacity: 1;
-        }
-
-        .stat-card > * {
-            position: relative;
-            z-index: 1;
-        }
-
         .cta-glow {
             box-shadow: 0 0 18px rgba(57, 255, 20, 0.20), 0 0 25px rgba(208, 0, 255, 0.12);
         }
@@ -310,37 +309,19 @@
         }
 
         @media (max-width: 640px) {
-            .floating-card {
-                display: none;
-            }
-
-            .hero-panel {
-                padding: 1rem;
-            }
-
-            .mobile-cta {
-                width: 100%;
-                justify-content: center;
-            }
+            .floating-card { display: none; }
+            .hero-panel { padding: 1rem; }
+            .mobile-cta { width: 100%; justify-content: center; }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
-
-            .reveal {
-                opacity: 1;
-                transform: none;
-            }
+            .reveal { opacity: 1; transform: none; }
         }
     </style>
 </head>
@@ -561,7 +542,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    <!-- Drew -->
                     <article class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col reveal">
                         <div class="flex items-center gap-4 mb-4">
                             <img src="TwoTDCprofile.jpg" alt="Drew" class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-2xl object-cover border-2 border-crew-green/70 shadow-[0_0_14px_rgba(57,255,20,0.22)]">
@@ -580,7 +560,6 @@
                         </div>
                     </article>
 
-                    <!-- T-Bird -->
                     <article class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col reveal">
                         <div class="flex items-center gap-4 mb-4">
                             <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&auto=format&fit=crop&q=80" alt="T-Bird" loading="lazy" class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-2xl object-cover border-2 border-crew-purple/70 shadow-[0_0_14px_rgba(208,0,255,0.2)]">
@@ -597,7 +576,6 @@
                         </div>
                     </article>
 
-                    <!-- Xaye -->
                     <article class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col reveal">
                         <div class="flex items-center gap-4 mb-4">
                             <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=400&auto=format&fit=crop&q=80" alt="Xaye" loading="lazy" class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-2xl object-cover border-2 border-crew-purple/70 shadow-[0_0_14px_rgba(208,0,255,0.2)]">
