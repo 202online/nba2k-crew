@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -65,8 +66,13 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        section,
-        footer {
+        .family-way-heading,
+        .family-way-title,
+        .family-way-number {
+            font-family: 'Barlow Condensed', sans-serif;
+        }
+
+        section, footer {
             background-color: var(--page-black);
         }
 
@@ -264,6 +270,96 @@
             transform: translateY(0);
         }
 
+        .family-way-list {
+            counter-reset: family-value;
+        }
+
+        .family-way-item {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            background: linear-gradient(110deg, rgba(15, 15, 20, 0.98), rgba(7, 7, 10, 0.96));
+            border: 1px solid rgba(255, 255, 255, 0.11);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+            transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+        }
+
+        .family-way-item:nth-child(odd) {
+            --item-accent: var(--electric-green);
+            --item-glow: rgba(57, 255, 20, 0.13);
+            border-left: 4px solid var(--item-accent);
+        }
+
+        .family-way-item:nth-child(even) {
+            --item-accent: var(--electric-purple);
+            --item-glow: rgba(208, 0, 255, 0.15);
+            border-left: 4px solid var(--item-accent);
+        }
+
+        .family-way-item::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            background:
+                repeating-linear-gradient(
+                    135deg,
+                    transparent 0,
+                    transparent 14px,
+                    rgba(255, 255, 255, 0.018) 14px,
+                    rgba(255, 255, 255, 0.018) 16px
+                ),
+                radial-gradient(circle at 100% 0, var(--item-glow), transparent 55%);
+            pointer-events: none;
+        }
+
+        .family-way-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--item-accent);
+            box-shadow: 0 12px 30px var(--item-glow);
+        }
+
+        .family-way-number {
+            display: flex;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            color: var(--item-accent);
+            border: 1px solid var(--item-accent);
+            background: color-mix(in srgb, var(--item-accent) 10%, transparent);
+            font-size: 1.65rem;
+            font-weight: 900;
+            line-height: 1;
+            transform: skew(-5deg);
+            text-shadow: 0 0 12px var(--item-glow);
+        }
+
+        .family-way-kicker {
+            color: var(--item-accent);
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+        }
+
+        .family-way-title {
+            color: #edf7ef;
+            font-size: clamp(1.35rem, 3vw, 1.9rem);
+            font-weight: 900;
+            letter-spacing: 0.015em;
+            line-height: 1.08;
+            text-transform: uppercase;
+            text-wrap: balance;
+        }
+
+        .family-way-detail {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
         input,
         select,
         textarea {
@@ -322,6 +418,16 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .family-way-item {
+                padding: 1rem;
+            }
+
+            .family-way-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1.4rem;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -340,6 +446,10 @@
             .reveal {
                 opacity: 1;
                 transform: none;
+            }
+
+            .family-way-item {
+                transition: none;
             }
         }
     </style>
@@ -692,46 +802,57 @@
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-10 reveal">
                     <div class="section-divider mb-5"></div>
-                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">
-                        THE <span class="gradient-text">FAMILY</span> WAY
+                    <p class="text-xs font-extrabold uppercase tracking-[0.3em] text-crew-green mb-3">
+                        TDC Crew Code
+                    </p>
+                    <h2 class="family-way-heading text-4xl sm:text-5xl font-black uppercase tracking-wide text-white">
+                        The <span class="gradient-text">Family Way</span>
                     </h2>
                 </div>
 
-                <ol class="space-y-4">
-                    <li class="glass-card rounded-3xl p-5 sm:p-6 reveal">
-                        <div class="flex items-start gap-4">
-                            <span class="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-crew-green/10 border border-crew-green/30 text-crew-green font-display font-extrabold text-lg">1</span>
-                            <div>
-                                <h3 class="font-display text-lg sm:text-2xl font-bold text-white">Play To Win — F*** The Stats</h3>
+                <ol class="family-way-list space-y-4">
+                    <li class="family-way-item rounded-2xl p-5 sm:p-6 reveal">
+                        <div class="flex items-start gap-4 sm:gap-5">
+                            <span class="family-way-number" aria-hidden="true">01</span>
+                            <div class="min-w-0 pt-1">
+                                <p class="family-way-kicker mb-2">Compete for the win</p>
+                                <h3 class="family-way-title">Play To Win — F*** The Stats</h3>
                             </div>
                         </div>
                     </li>
 
-                    <li class="glass-card rounded-3xl p-5 sm:p-6 reveal">
-                        <div class="flex items-start gap-4">
-                            <span class="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-crew-purple/10 border border-crew-purple/30 text-crew-purple font-display font-extrabold text-lg">2</span>
-                            <div>
-                                <h3 class="font-display text-lg sm:text-2xl font-bold text-white">Have Fun — Always Our Top Priority, No Questions</h3>
+                    <li class="family-way-item rounded-2xl p-5 sm:p-6 reveal">
+                        <div class="flex items-start gap-4 sm:gap-5">
+                            <span class="family-way-number" aria-hidden="true">02</span>
+                            <div class="min-w-0 pt-1">
+                                <p class="family-way-kicker mb-2">Enjoy the run</p>
+                                <h3 class="family-way-title">Have Fun — Always Our Top Priority, No Questions</h3>
                             </div>
                         </div>
                     </li>
 
-                    <li class="glass-card rounded-3xl p-5 sm:p-6 reveal">
-                        <div class="flex items-start gap-4">
-                            <span class="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-crew-green/10 border border-crew-green/30 text-crew-green font-display font-extrabold text-lg">3</span>
-                            <div>
-                                <h3 class="font-display text-lg sm:text-2xl font-bold text-white">Iron Sharpens Iron — Healthy Conflict Breeds Better Chemistry</h3>
-                                <p class="text-slate-300 text-sm mt-2">We Are Always a Team.</p>
+                    <li class="family-way-item rounded-2xl p-5 sm:p-6 reveal">
+                        <div class="flex items-start gap-4 sm:gap-5">
+                            <span class="family-way-number" aria-hidden="true">03</span>
+                            <div class="min-w-0 pt-1">
+                                <p class="family-way-kicker mb-2">Get better together</p>
+                                <h3 class="family-way-title">Iron Sharpens Iron</h3>
+                                <p class="family-way-detail mt-2">
+                                    Healthy conflict breeds better chemistry. We are always a team.
+                                </p>
                             </div>
                         </div>
                     </li>
 
-                    <li class="glass-card rounded-3xl p-5 sm:p-6 reveal">
-                        <div class="flex items-start gap-4">
-                            <span class="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-crew-purple/10 border border-crew-purple/30 text-crew-purple font-display font-extrabold text-lg">4</span>
-                            <div>
-                                <h3 class="font-display text-lg sm:text-2xl font-bold text-white">MaP — Make a Play — Nobody is Perfect</h3>
-                                <p class="text-slate-300 text-sm mt-2">Keep a short memory and stay ready to MaP.</p>
+                    <li class="family-way-item rounded-2xl p-5 sm:p-6 reveal">
+                        <div class="flex items-start gap-4 sm:gap-5">
+                            <span class="family-way-number" aria-hidden="true">04</span>
+                            <div class="min-w-0 pt-1">
+                                <p class="family-way-kicker mb-2">Make a play</p>
+                                <h3 class="family-way-title">MaP — Nobody Is Perfect</h3>
+                                <p class="family-way-detail mt-2">
+                                    Keep a short memory. Stay ready to MaP.
+                                </p>
                             </div>
                         </div>
                     </li>
