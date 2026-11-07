@@ -42,13 +42,15 @@
             --electric-purple: #d000ff;
             --page-black: #000000;
             --panel-black: #08080c;
+            --soft-white: #edf7ef;
+            --soft-light: #dfe9f4;
         }
 
         html,
         body {
             min-height: 100%;
             background: var(--page-black) !important;
-            color: #f3f4f6;
+            color: var(--soft-white);
         }
 
         body {
@@ -108,6 +110,10 @@
             text-shadow: 0 0 8px rgba(208, 0, 255, 0.55);
         }
 
+        .text-white {
+            color: var(--soft-white) !important;
+        }
+
         [class*="from-crew-green"][class*="to-crew-purple"] {
             background-image: linear-gradient(110deg, var(--electric-green), var(--electric-purple)) !important;
             box-shadow: 0 0 18px rgba(208, 0, 255, 0.25);
@@ -149,7 +155,7 @@
         select,
         textarea {
             background-color: var(--panel-black) !important;
-            color: #f9fafb !important;
+            color: var(--soft-white) !important;
             border-color: rgba(255, 255, 255, 0.18) !important;
         }
 
@@ -164,6 +170,51 @@
             border-color: var(--electric-green) !important;
             box-shadow: 0 0 12px rgba(57, 255, 20, 0.25);
             outline: none;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(135deg, rgba(57,255,20,0.18), rgba(208,0,255,0.12));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-glow {
+            box-shadow: 0 0 18px rgba(57, 255, 20, 0.22), 0 0 28px rgba(208, 0, 255, 0.18);
+        }
+
+        .section-divider {
+            width: 110px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--electric-green), var(--electric-purple));
+            box-shadow: 0 0 12px rgba(57,255,20,0.5);
         }
 
         ::-webkit-scrollbar {
@@ -196,7 +247,7 @@
 <body class="antialiased selection:bg-crew-purple selection:text-white">
     <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3 pointer-events-none"></div>
 
-    <!-- Navigation Header -->
+    <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-40 glass-card border-b border-white/10" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3">
@@ -212,6 +263,7 @@
             <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
                 <a href="#intro" class="text-slate-300 hover:text-crew-green transition-colors">About Us</a>
                 <a href="#crew" class="text-slate-300 hover:text-crew-green transition-colors">Meet The Family</a>
+                <a href="#why-tdc" class="text-slate-300 hover:text-crew-green transition-colors">Why TDC</a>
                 <a href="#highlights" class="text-slate-300 hover:text-crew-green transition-colors">Highlights</a>
                 <a href="#perks" class="text-slate-300 hover:text-crew-purple transition-colors">Family Perks</a>
                 <a href="#recruitment" class="text-slate-300 hover:text-crew-green transition-colors">Join The Family</a>
@@ -230,16 +282,17 @@
         <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-white/10 px-4 pt-3 pb-5 space-y-2">
             <a href="#intro" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-white/5 hover:text-crew-green">About Us</a>
             <a href="#crew" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-white/5 hover:text-crew-green">Meet The Family</a>
+            <a href="#why-tdc" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-white/5 hover:text-crew-green">Why TDC</a>
             <a href="#highlights" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-white/5 hover:text-crew-green">Highlights</a>
             <a href="#perks" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-white/5 hover:text-crew-purple">Family Perks</a>
             <a href="#recruitment" class="mobile-link block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-white/5 hover:text-crew-green">Join The Family</a>
         </div>
     </header>
 
-    <!-- Intro & Hero Section -->
+    <!-- Hero -->
     <section id="intro" class="relative pt-32 pb-20 hero-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-14">
+            <div class="text-center max-w-3xl mx-auto mb-14 reveal">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-crew-purple/40 text-xs font-semibold text-purple-300 mb-6">
                     <i class="fa-solid fa-basketball text-crew-green"></i>
                     Unselfish Basketball • Free VC & Merch Rewards
@@ -257,17 +310,30 @@
                 </p>
 
                 <div class="flex flex-wrap items-center justify-center gap-4">
-                    <a href="#recruitment" class="px-6 py-3.5 rounded-xl font-display font-bold text-sm text-white bg-crew-green hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20">
+                    <a href="#recruitment" class="cta-glow px-6 py-3.5 rounded-xl font-display font-bold text-sm text-white bg-crew-green hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20">
                         <i class="fa-solid fa-user-plus"></i> Join The Family
                     </a>
                     <a href="#perks" class="px-6 py-3.5 rounded-xl font-display font-bold text-sm text-white bg-crew-purple/30 hover:bg-crew-purple/50 border border-crew-purple/40 transition-all shadow-lg shadow-purple-500/20">
                         <i class="fa-solid fa-gift text-crew-purple"></i> View Family Perks
                     </a>
                 </div>
+
+                <!-- Trust badges -->
+                <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+                    <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-crew-green/30 bg-crew-green/5 text-xs font-semibold text-crew-green">
+                        <i class="fa-solid fa-star"></i> High IQ Basketball
+                    </span>
+                    <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-crew-purple/30 bg-crew-purple/5 text-xs font-semibold text-crew-purple">
+                        <i class="fa-solid fa-calendar-check"></i> Weekly Family Runs
+                    </span>
+                    <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-white/10 bg-white/5 text-xs font-semibold text-slate-200">
+                        <i class="fa-solid fa-gift"></i> Free VC & Merch
+                    </span>
+                </div>
             </div>
 
             <!-- Featured Intro Video -->
-            <div class="max-w-4xl mx-auto glass-card rounded-3xl p-3 border border-white/10 shadow-2xl">
+            <div class="max-w-4xl mx-auto glass-card rounded-3xl p-3 border border-white/10 shadow-2xl reveal">
                 <div class="relative aspect-video rounded-2xl overflow-hidden bg-black">
                     <iframe
                         class="w-full h-full"
@@ -288,10 +354,58 @@
         </div>
     </section>
 
-    <!-- Meet The Family Section -->
+    <!-- Why TDC -->
+    <section id="why-tdc" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+                <div class="section-divider mx-auto mb-5"></div>
+                <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">
+                    WHY <span class="gradient-text">TDC</span>
+                </h2>
+                <p class="text-slate-400 mt-2 text-sm sm:text-base">
+                    We built a family around good basketball, high energy, and strong chemistry.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card stat-card rounded-3xl p-6 reveal">
+                    <div class="w-12 h-12 rounded-2xl bg-crew-green/20 border border-crew-green/40 flex items-center justify-center text-crew-green text-xl mb-4">
+                        <i class="fa-solid fa-basketball"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Playstyle First</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Team ball, smart reads, strong help defense, and zero ego. We reward basketball IQ over highlight hunting.
+                    </p>
+                </div>
+
+                <div class="glass-card stat-card rounded-3xl p-6 reveal">
+                    <div class="w-12 h-12 rounded-2xl bg-crew-purple/20 border border-crew-purple/40 flex items-center justify-center text-crew-purple text-xl mb-4">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Family Energy</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        We keep the room positive, competitive, and welcoming. Real basketball love without the toxicity.
+                    </p>
+                </div>
+
+                <div class="glass-card stat-card rounded-3xl p-6 reveal">
+                    <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-crew-green text-xl mb-4">
+                        <i class="fa-solid fa-gift"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Perks That Matter</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Free VC, community givebacks, active Discord energy, and real team chemistry that lasts beyond the game.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet The Family -->
     <section id="crew" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <div class="section-divider mx-auto mb-5"></div>
                 <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">
                     MEET THE <span class="gradient-text">FAMILY</span>
                 </h2>
@@ -302,7 +416,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Player 1: Drew -->
-                <div class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col h-full transition-all duration-300 hover:-translate-y-1">
+                <div class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 reveal">
                     <div class="flex items-center gap-3 sm:gap-4 mb-4 min-h-24 sm:min-h-28">
                         <img
                             src="TwoTDCprofile.jpg"
@@ -312,7 +426,7 @@
                         <div class="min-w-0">
                             <span class="text-xs font-bold uppercase tracking-wider text-crew-purple">Floor General</span>
                             <h3 class="font-display text-lg sm:text-xl font-bold text-white">Drew "Two"</h3>
-                            <p class="text-xs text-white">
+                            <p class="text-xs text-crew-green">
                                 <i class="fa-brands fa-xbox mr-1"></i>Twooh Two TDC
                             </p>
                         </div>
@@ -329,7 +443,7 @@
                 </div>
 
                 <!-- Player 2: T-Bird -->
-                <div class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col h-full transition-all duration-300 hover:-translate-y-1">
+                <div class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 reveal">
                     <div class="flex items-center gap-3 sm:gap-4 mb-4 min-h-24 sm:min-h-28">
                         <img
                             src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&auto=format&fit=crop&q=80"
@@ -339,7 +453,7 @@
                         <div class="min-w-0">
                             <span class="text-xs font-bold uppercase tracking-wider text-crew-purple">Lockdown Wing</span>
                             <h3 class="font-display text-lg sm:text-xl font-bold text-white">T-Bird "Filthy"</h3>
-                            <p class="text-xs text-white">
+                            <p class="text-xs text-crew-green">
                                 <i class="fa-brands fa-xbox mr-1"></i>FiLTHY1 TDC
                             </p>
                         </div>
@@ -354,7 +468,7 @@
                 </div>
 
                 <!-- Player 3: Xaye -->
-                <div class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col h-full transition-all duration-300 hover:-translate-y-1">
+                <div class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 reveal">
                     <div class="flex items-center gap-3 sm:gap-4 mb-4 min-h-24 sm:min-h-28">
                         <img
                             src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=400&auto=format&fit=crop&q=80"
@@ -364,7 +478,7 @@
                         <div class="min-w-0">
                             <span class="text-xs font-bold uppercase tracking-wider text-crew-purple">Anchor Center</span>
                             <h3 class="font-display text-xl font-bold text-white">Xaye "Tiger"</h3>
-                            <p class="text-xs text-white">
+                            <p class="text-xs text-crew-green">
                                 <i class="fa-brands fa-xbox mr-1"></i>Tigerbol TDC
                             </p>
                         </div>
@@ -381,10 +495,11 @@
         </div>
     </section>
 
-    <!-- Highlight Tapes Section -->
+    <!-- Highlights -->
     <section id="highlights" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
+            <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+                <div class="section-divider mx-auto mb-5"></div>
                 <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">
                     HIGHLIGHT <span class="gradient-text">TAPES</span>
                 </h2>
@@ -393,8 +508,7 @@
                 </p>
             </div>
 
-            <!-- Main Team Highlight Reel -->
-            <div class="mb-12 glass-card rounded-3xl p-6 border border-white/10">
+            <div class="mb-12 glass-card rounded-3xl p-6 border border-white/10 reveal">
                 <div class="flex items-center justify-between mb-4">
                     <div>
                         <span class="text-xs font-bold text-crew-green uppercase tracking-wider">Featured Team Tape</span>
@@ -413,12 +527,12 @@
                 </div>
             </div>
 
-            <h3 class="font-display text-xl font-bold text-white mb-6 flex items-center gap-2">
+            <h3 class="font-display text-xl font-bold text-white mb-6 flex items-center gap-2 reveal">
                 <i class="fa-solid fa-film text-crew-purple"></i> Player Specific Mixes
             </h3>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card rounded-2xl p-4 flex flex-col justify-between hover:border-crew-green/40 transition-all group">
+                <div class="glass-card rounded-2xl p-4 flex flex-col justify-between hover:border-crew-green/40 transition-all group reveal">
                     <div class="relative aspect-video rounded-xl overflow-hidden mb-3 bg-black">
                         <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1" title="Marcus Highlights" allowfullscreen></iframe>
                     </div>
@@ -428,7 +542,7 @@
                     </div>
                 </div>
 
-                <div class="glass-card rounded-2xl p-4 flex flex-col justify-between hover:border-crew-purple/40 transition-all group">
+                <div class="glass-card rounded-2xl p-4 flex flex-col justify-between hover:border-crew-purple/40 transition-all group reveal">
                     <div class="relative aspect-video rounded-xl overflow-hidden mb-3 bg-black">
                         <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1" title="Dave Highlights" allowfullscreen></iframe>
                     </div>
@@ -438,7 +552,7 @@
                     </div>
                 </div>
 
-                <div class="glass-card rounded-2xl p-4 flex flex-col justify-between hover:border-crew-green/40 transition-all group">
+                <div class="glass-card rounded-2xl p-4 flex flex-col justify-between hover:border-crew-green/40 transition-all group reveal">
                     <div class="relative aspect-video rounded-xl overflow-hidden mb-3 bg-black">
                         <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=1" title="Sam Highlights" allowfullscreen></iframe>
                     </div>
@@ -451,10 +565,11 @@
         </div>
     </section>
 
-    <!-- Family Perks Section -->
+    <!-- Family Perks -->
     <section id="perks" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <div class="section-divider mx-auto mb-5"></div>
                 <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">
                     FAMILY <span class="gradient-text">PERKS & BENEFITS</span>
                 </h2>
@@ -464,8 +579,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Perk 1: Free VC Giveaways -->
-                <div class="glass-card rounded-3xl p-6 flex flex-col gap-3 relative overflow-hidden group border border-crew-green/30">
+                <div class="glass-card rounded-3xl p-6 flex flex-col gap-3 relative overflow-hidden group border border-crew-green/30 reveal">
                     <div class="w-12 h-12 rounded-2xl bg-crew-green/20 border border-crew-green/40 flex items-center justify-center text-crew-green text-xl">
                         <i class="fa-solid fa-coins"></i>
                     </div>
@@ -476,8 +590,7 @@
                     </p>
                 </div>
 
-                <!-- Perk 2: Custom Family Merch -->
-                <div class="glass-card rounded-3xl p-6 flex flex-col gap-3 relative overflow-hidden group border border-crew-purple/30">
+                <div class="glass-card rounded-3xl p-6 flex flex-col gap-3 relative overflow-hidden group border border-crew-purple/30 reveal">
                     <div class="w-12 h-12 rounded-2xl bg-crew-purple/20 border border-crew-purple/40 flex items-center justify-center text-crew-purple text-xl">
                         <i class="fa-solid fa-shirt"></i>
                     </div>
@@ -488,8 +601,7 @@
                     </p>
                 </div>
 
-                <!-- Perk 3: Rage-Free Zone -->
-                <div class="glass-card rounded-3xl p-6 flex flex-col gap-3 border border-white/10 hover:border-crew-green/40 transition-colors">
+                <div class="glass-card rounded-3xl p-6 flex flex-col gap-3 border border-white/10 hover:border-crew-green/40 transition-colors reveal">
                     <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white text-xl">
                         <i class="fa-solid fa-face-laugh-squint text-crew-green"></i>
                     </div>
@@ -500,8 +612,7 @@
                     </p>
                 </div>
 
-                <!-- Perk 4: High IQ Hoops -->
-                <div class="glass-card rounded-3xl p-6 flex flex-col gap-3">
+                <div class="glass-card rounded-3xl p-6 flex flex-col gap-3 reveal">
                     <div class="w-12 h-12 rounded-2xl bg-crew-green/20 border border-crew-green/40 flex items-center justify-center text-crew-green text-xl">
                         <i class="fa-solid fa-arrows-split-up-and-left"></i>
                     </div>
@@ -512,8 +623,7 @@
                     </p>
                 </div>
 
-                <!-- Perk 5: Discord -->
-                <div class="glass-card rounded-3xl p-6 flex flex-col gap-3">
+                <div class="glass-card rounded-3xl p-6 flex flex-col gap-3 reveal">
                     <div class="w-12 h-12 rounded-2xl bg-crew-purple/20 border border-crew-purple/40 flex items-center justify-center text-crew-purple text-xl">
                         <i class="fa-brands fa-discord"></i>
                     </div>
@@ -524,8 +634,7 @@
                     </p>
                 </div>
 
-                <!-- Perk 6: Flexible Schedule -->
-                <div class="glass-card rounded-3xl p-6 flex flex-col gap-3">
+                <div class="glass-card rounded-3xl p-6 flex flex-col gap-3 reveal">
                     <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-crew-green text-xl">
                         <i class="fa-solid fa-calendar-check"></i>
                     </div>
@@ -539,65 +648,100 @@
         </div>
     </section>
 
-    <!-- Join The Family Section -->
+    <!-- Join The Family -->
     <section id="recruitment" class="py-24 relative">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-card rounded-3xl p-8 sm:p-10 border border-white/10 shadow-2xl">
-                <div class="text-center mb-8">
-                    <span class="text-xs font-bold text-crew-green uppercase tracking-wider block mb-1">Join The Family</span>
-                    <h2 class="font-display text-3xl font-extrabold text-white">
-                        GET IN <span class="gradient-text">TOUCH</span>
-                    </h2>
-                    <p class="text-slate-400 text-sm mt-2">
-                        Looking for a relaxed basketball family that passes the ball and awards free VC? Join us!
-                    </p>
-                </div>
-
-                <form id="join-form" onsubmit="handleFormSubmit(event)" class="space-y-5">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Gamertag / PSN ID *</label>
-                            <input type="text" required placeholder="e.g. Hooper_Dave" class="w-full border rounded-xl px-4 py-3 placeholder-slate-500 transition-colors">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Platform *</label>
-                            <select required class="w-full border rounded-xl px-4 py-3 transition-colors">
-                                <option value="" disabled selected>Select Platform</option>
-                                <option value="ps5">PlayStation 5</option>
-                                <option value="xbox">Xbox Series X|S</option>
-                                <option value="pc">PC (Crossplay)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Preferred Position *</label>
-                            <select required class="w-full border rounded-xl px-4 py-3 transition-colors">
-                                <option value="" disabled selected>Position</option>
-                                <option value="PG">Point Guard (PG)</option>
-                                <option value="SG">Shooting Guard (SG)</option>
-                                <option value="SF">Small Forward (SF)</option>
-                                <option value="PF">Power Forward (PF)</option>
-                                <option value="C">Center (C)</option>
-                                <option value="Flex">Flex / Multiple Positions</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Primary Build Style</label>
-                            <input type="text" placeholder="e.g. 3&D Wing, Pass First PG" class="w-full border rounded-xl px-4 py-3 placeholder-slate-500 transition-colors">
-                        </div>
-                    </div>
-
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-10 border border-white/10 shadow-2xl reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_1.4fr] gap-10 items-start">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Short Intro / Playing Hours</label>
-                        <textarea rows="3" placeholder="Tell us a bit about your playstyle or when you usually like to jump online..." class="w-full border rounded-xl px-4 py-3 placeholder-slate-500 transition-colors"></textarea>
+                        <div class="section-divider mb-5"></div>
+                        <span class="text-xs font-bold text-crew-green uppercase tracking-wider block mb-2">Join The Family</span>
+                        <h2 class="font-display text-3xl font-extrabold text-white">
+                            GET IN <span class="gradient-text">TOUCH</span>
+                        </h2>
+                        <p class="text-slate-400 text-sm mt-3">
+                            Looking for a relaxed basketball family that passes the ball and awards free VC? Join us.
+                        </p>
+
+                        <div class="mt-6 space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-full bg-crew-green/15 border border-crew-green/40 flex items-center justify-center text-crew-green">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Discord access</h4>
+                                    <p class="text-sm text-slate-300">Stay updated on run schedules, crew chat, and game-day plans.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-full bg-crew-green/15 border border-crew-green/40 flex items-center justify-center text-crew-green">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Family runs</h4>
+                                    <p class="text-sm text-slate-300">Weekly casual sessions built around good team basketball and positive energy.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-full bg-crew-green/15 border border-crew-green/40 flex items-center justify-center text-crew-green">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Crew rewards</h4>
+                                    <p class="text-sm text-slate-300">VC drops, merch updates, and a community that actually supports each other.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <button type="submit" class="w-full py-3.5 rounded-xl font-display font-bold text-sm text-white bg-gradient-to-r from-crew-green to-crew-purple hover:opacity-95 transition-all shadow-lg shadow-purple-500/20 flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-paper-plane"></i> Send Family Request
-                    </button>
-                </form>
+                    <form id="join-form" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Gamertag / PSN ID *</label>
+                                <input type="text" required placeholder="e.g. Hooper_Dave" class="w-full border rounded-xl px-4 py-3 placeholder-slate-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Platform *</label>
+                                <select required class="w-full border rounded-xl px-4 py-3 transition-colors">
+                                    <option value="" disabled selected>Select Platform</option>
+                                    <option value="ps5">PlayStation 5</option>
+                                    <option value="xbox">Xbox Series X|S</option>
+                                    <option value="pc">PC (Crossplay)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Preferred Position *</label>
+                                <select required class="w-full border rounded-xl px-4 py-3 transition-colors">
+                                    <option value="" disabled selected>Position</option>
+                                    <option value="PG">Point Guard (PG)</option>
+                                    <option value="SG">Shooting Guard (SG)</option>
+                                    <option value="SF">Small Forward (SF)</option>
+                                    <option value="PF">Power Forward (PF)</option>
+                                    <option value="C">Center (C)</option>
+                                    <option value="Flex">Flex / Multiple Positions</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Primary Build Style</label>
+                                <input type="text" placeholder="e.g. 3&D Wing, Pass First PG" class="w-full border rounded-xl px-4 py-3 placeholder-slate-500 transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Short Intro / Playing Hours</label>
+                            <textarea rows="3" placeholder="Tell us a bit about your playstyle or when you usually like to jump online..." class="w-full border rounded-xl px-4 py-3 placeholder-slate-500 transition-colors"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl font-display font-bold text-sm text-white bg-gradient-to-r from-crew-green to-crew-purple hover:opacity-95 transition-all shadow-lg shadow-purple-500/20 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Send Family Request
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -679,6 +823,16 @@
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
