@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000">
-    <title>TDC // The DEMONStration CREW</title>
-    <meta name="description" content="TDC is a high-IQ basketball family built on chemistry, team play, and a positive gaming community.">
+    <meta name="description" content="Thanks for sending TDC your family application.">
+    <title>Application Received // TDC</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -21,12 +20,9 @@
                     colors: {
                         crew: {
                             green: '#39ff14',
-                            emerald: '#00ff9d',
                             purple: '#d000ff',
-                            violet: '#9d00ff',
                             black: '#000000',
-                            dark: '#08080c',
-                            surface: '#101014'
+                            dark: '#08080c'
                         }
                     },
                     fontFamily: {
@@ -42,277 +38,138 @@
         :root {
             --electric-green: #39ff14;
             --electric-purple: #d000ff;
-            --page-black: #000000;
-            --panel-black: #08080c;
-            --soft-white: #edf7ef;
         }
 
         html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 6rem;
+            min-height: 100%;
+            background: #000;
         }
 
         body {
-            min-height: 100%;
+            min-height: 100vh;
             margin: 0;
-            overflow-x: hidden;
-            background: var(--page-black);
-            color: var(--soft-white);
+            color: #edf7ef;
             font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(57, 255, 20, 0.09), transparent 32%),
+                radial-gradient(circle at 85% 25%, rgba(208, 0, 255, 0.11), transparent 34%),
+                #000;
         }
 
         .font-display {
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        .family-way-heading,
-        .family-way-title,
-        .family-way-tally {
-            font-family: 'Barlow Condensed', sans-serif;
-        }
-
-        section,
-        footer {
-            background-color: var(--page-black);
-        }
-
-        .hero-bg {
-            background:
-                radial-gradient(circle at 18% 20%, rgba(57, 255, 20, 0.08), transparent 30%),
-                radial-gradient(circle at 82% 25%, rgba(208, 0, 255, 0.10), transparent 32%),
-                linear-gradient(180deg, #000000, #030306);
-        }
-
-        .glass-card {
-            background: rgba(8, 8, 12, 0.94);
-            border: 1px solid rgba(255, 255, 255, 0.10);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 0 18px rgba(57, 255, 20, 0.05);
-        }
-
-        .glass-card:hover {
-            border-color: rgba(208, 0, 255, 0.55);
-            box-shadow: 0 0 22px rgba(208, 0, 255, 0.14);
-        }
-
         .gradient-text {
             background: linear-gradient(110deg, var(--electric-green), var(--electric-purple));
             -webkit-background-clip: text;
             background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: transparent;
         }
 
-        .text-crew-green,
-        .text-emerald-300,
-        .text-green-400 {
-            color: var(--electric-green) !important;
-            -webkit-text-fill-color: var(--electric-green);
-            text-shadow: 0 0 8px rgba(57, 255, 20, 0.45);
-        }
-
-        .text-crew-purple,
-        .text-fuchsia-300,
-        .text-purple-300 {
-            color: var(--electric-purple) !important;
-            -webkit-text-fill-color: var(--electric-purple);
-            text-shadow: 0 0 8px rgba(208, 0, 255, 0.45);
-        }
-
-        .text-white {
-            color: var(--soft-white) !important;
-        }
-
-        [class*="from-crew-green"][class*="to-crew-purple"] {
-            background-image: linear-gradient(110deg, var(--electric-green), var(--electric-purple)) !important;
-            box-shadow: 0 0 18px rgba(208, 0, 255, 0.22);
-        }
-
-        .badge-green {
-            background: rgba(57, 255, 20, 0.08);
-            color: #a7ff91;
-            border: 1px solid rgba(57, 255, 20, 0.50);
-            box-shadow: 0 0 10px rgba(57, 255, 20, 0.12);
-        }
-
-        .badge-purple {
-            background: rgba(208, 0, 255, 0.08);
-            color: #ed9cff;
-            border: 1px solid rgba(208, 0, 255, 0.50);
-            box-shadow: 0 0 10px rgba(208, 0, 255, 0.12);
-        }
-
-        .section-divider {
-            width: 96px;
-            height: 2px;
-            margin-inline: auto;
-            background: linear-gradient(90deg, var(--electric-green), var(--electric-purple));
-            box-shadow: 0 0 12px rgba(57, 255, 20, 0.4);
-        }
-
-        .hero-panel {
-            position: relative;
-            isolation: isolate;
-            background: linear-gradient(135deg, rgba(16, 16, 20, 0.96), rgba(12, 12, 18, 0.92));
-            border: 1px solid rgba(255, 255, 255, 0.10);
-            box-shadow: 0 0 30px rgba(57, 255, 20, 0.07), 0 0 30px rgba(208, 0, 255, 0.07);
-        }
-
-        .hero-panel::before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            inset: 0;
-            border-radius: inherit;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-            background-size: 26px 26px;
-            mask-image: radial-gradient(circle at center, black 35%, transparent 100%);
-            pointer-events: none;
-        }
-
-        .pulse-orb {
-            position: absolute;
-            z-index: -1;
-            width: 190px;
-            height: 190px;
-            border-radius: 9999px;
-            filter: blur(58px);
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-        .pulse-orb.green {
-            top: -50px;
-            right: 15px;
-            background: rgba(57, 255, 20, 0.25);
-        }
-
-        .pulse-orb.purple {
-            bottom: -50px;
-            left: 15px;
-            background: rgba(208, 0, 255, 0.22);
-        }
-
-        .floating-card {
-            position: absolute;
-            right: -8px;
-            bottom: 26px;
-            width: 164px;
-            background: rgba(9, 9, 12, 0.94);
-            border: 1px solid rgba(255, 255, 255, 0.10);
+        .thank-you-card {
+            background: rgba(8, 8, 12, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow:
+                0 0 35px rgba(57, 255, 20, 0.08),
+                0 0 45px rgba(208, 0, 255, 0.08);
             backdrop-filter: blur(12px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.45);
+            -webkit-backdrop-filter: blur(12px);
         }
 
-        .floating-card.left {
-            left: -8px;
-            right: auto;
-            bottom: 58px;
-            width: 150px;
+        .success-mark {
+            box-shadow:
+                0 0 18px rgba(57, 255, 20, 0.3),
+                inset 0 0 18px rgba(57, 255, 20, 0.08);
         }
 
-        .floating-pill {
-            border: 1px solid rgba(57, 255, 20, 0.3);
-            background: rgba(57, 255, 20, 0.06);
-            color: var(--electric-green);
+        :focus-visible {
+            outline: 2px solid var(--electric-green);
+            outline-offset: 4px;
         }
 
-        .floating-pill.purple {
-            border-color: rgba(208, 0, 255, 0.35);
-            background: rgba(208, 0, 255, 0.06);
-            color: var(--electric-purple);
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
         }
+    </style>
+</head>
 
-        .stats-bar {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(255, 255, 255, 0.02);
-        }
+<body class="flex min-h-screen flex-col">
+    <header class="border-b border-white/10">
+        <div class="mx-auto flex max-w-7xl items-center px-4 py-5 sm:px-6 lg:px-8">
+            <a href="index.html#intro" class="inline-flex items-center gap-3" aria-label="TDC home">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-crew-green to-crew-purple text-xl text-black">
+                    <span aria-hidden="true">🏀</span>
+                </span>
+                <span>
+                    <span class="font-display block text-lg font-extrabold tracking-wide text-white">TDC</span>
+                    <span class="block text-xs font-semibold text-crew-green">The DEMONStration CREW</span>
+                </span>
+            </a>
+        </div>
+    </header>
 
-        .stat-card {
-            position: relative;
-            overflow: hidden;
-        }
+    <main class="flex flex-1 items-center justify-center px-4 py-14 sm:px-6">
+        <section class="thank-you-card w-full max-w-2xl rounded-3xl p-7 text-center sm:p-12" aria-labelledby="thank-you-title">
+            <div class="success-mark mx-auto mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-crew-green/50 bg-crew-green/10 text-3xl text-crew-green" aria-hidden="true">
+                ✓
+            </div>
 
-        .stat-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(57,255,20,0.08), rgba(208,0,255,0.08));
-            opacity: 0;
-            transition: opacity 0.25s ease;
-            pointer-events: none;
-        }
+            <p class="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-crew-green">
+                TDC Family Application
+            </p>
 
-        .stat-card:hover::before {
-            opacity: 1;
-        }
+            <h1 id="thank-you-title" class="font-display text-3xl font-extrabold leading-tight text-white sm:text-5xl">
+                You’re on the <span class="gradient-text">Radar.</span>
+            </h1>
 
-        .stat-card > * {
-            position: relative;
-            z-index: 1;
-        }
+            <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
+                Thanks for reaching out to TDC. Your application has been submitted.
+                We’ll review your details and contact you using the email you provided.
+            </p>
 
-        .cta-glow {
-            box-shadow: 0 0 18px rgba(57, 255, 20, 0.20), 0 0 25px rgba(208, 0, 255, 0.12);
-        }
+            <div class="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-left">
+                <h2 class="font-display text-sm font-bold uppercase tracking-wider text-crew-purple">
+                    What happens next
+                </h2>
+                <ul class="mt-4 space-y-3 text-sm leading-relaxed text-slate-300">
+                    <li class="flex gap-3">
+                        <span class="text-crew-green" aria-hidden="true">›</span>
+                        We’ll review your player details and preferred play style.
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-crew-green" aria-hidden="true">›</span>
+                        Keep an eye on your inbox for a reply from the crew.
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-crew-green" aria-hidden="true">›</span>
+                        Check your spam or junk folder if you don’t see our message.
+                    </li>
+                </ul>
+            </div>
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(16px);
-            transition: opacity 0.65s ease, transform 0.65s ease;
-        }
+            <a
+                href="index.html#intro"
+                class="mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-crew-green px-6 py-3.5 font-display text-sm font-bold text-black transition hover:brightness-110"
+            >
+                <span aria-hidden="true">←</span>
+                Back to TDC
+            </a>
 
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+            <p class="mt-6 text-xs text-slate-500">
+                Please don’t send passwords or other sensitive account information.
+            </p>
+        </section>
+    </main>
 
-        .family-way-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .family-way-item {
-            position: relative;
-            isolation: isolate;
-            overflow: hidden;
-            background: linear-gradient(110deg, rgba(15, 15, 20, 0.98), rgba(7, 7, 10, 0.96));
-            border: 1px solid rgba(255, 255, 255, 0.11);
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
-            transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-        }
-
-        .family-way-item:nth-child(odd) {
-            --item-accent: var(--electric-green);
-            --item-glow: rgba(57, 255, 20, 0.13);
-            border-left: 4px solid var(--item-accent);
-        }
-
-        .family-way-item:nth-child(even) {
-            --item-accent: var(--electric-purple);
-            --item-glow: rgba(208, 0, 255, 0.15);
-            border-left: 4px solid var(--item-accent);
-        }
-
-        .family-way-item::before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            inset: 0;
-            background:
-                repeating-linear-gradient(
-                    135deg,
-                    transparent 0,
-                    transparent 14px,
-                    rgba(255, 255, 255, 0.018) 14px,
-                    rgba(255, 255, 255, 0.018) 16px
-                ),
-                radial-gradient(circle at 100% 0, var(--item-glow), transparent 55%);
-            pointer-events: none;
-        }
-
-        .family-way-item:hover {
-            transform: translateY(-*
+    <footer class="border-t border-white/10 px-4 py-6 text-center text-xs text-slate-500">
+        &copy; 2026 TDC • The DEMONStration CREW
+    </footer>
+</body>
+</html>
