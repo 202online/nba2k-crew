@@ -15,7 +15,7 @@ body::before {
     inset: 0;
     background:
         linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.68)),
-        url("./images/crew-background.webp") center / cover no-repeat;
+        url("./images/crew-background.webp") center top / cover no-repeat;
     content: "";
     pointer-events: none;
 }
