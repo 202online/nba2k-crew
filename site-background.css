@@ -1,0 +1,31 @@
+html {
+    min-height: 100%;
+    background: #000;
+}
+
+body {
+    position: relative;
+    isolation: isolate;
+    background: transparent !important;
+}
+
+body::before {
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.68)),
+        url("./images/crew-background.webp") center / cover no-repeat;
+    content: "";
+    pointer-events: none;
+}
+
+body > main > section,
+body > footer {
+    background-color: rgba(0, 0, 0, 0.62) !important;
+}
+
+body > main > section.hero-bg {
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.48), rgba(3, 3, 6, 0.68)) !important;
+}
